@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05020c" />
+  <title>Arenas & Events | D³ FEST 2026 | IIIT Bhubaneswar</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    .nav-link {
+      clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+      border: 2px solid #000;
+      background-color: #f9a8f5;
+      color: #000;
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.3);
+    }
+    .nav-link:hover {
+      background-color: #ff7bf5;
+      transform: scale(1.05);
+    }
+    .nav-link.active {
+      background-color: #ff7bf5 !important;
+      box-shadow: 0 0 12px rgba(255, 123, 245, 0.8), inset 0 2px 0 rgba(255,255,255,0.7), inset 0 -2px 0 rgba(0,0,0,0.3) !important;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-[#05020c] text-white selection:bg-[#ff7bf5] selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Fixed Retro Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 py-3 px-3 sm:px-6 select-none pointer-events-auto transition-all duration-300 bg-transparent border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer group shrink-0" data-sfx="start">
+        <div class="relative w-28 sm:w-36 h-9 sm:h-11">
+          <img src="assets/logo.png" alt="D³ FEST - IIIT BHUBANESWAR" class="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-2 xl:gap-3.5">
+        <a href="index.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="index" data-sfx="blip">Home</a>
+        <a href="about.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="about" data-sfx="blip">About</a>
+        <a href="events.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="events" data-sfx="blip">Events</a>
+        <a href="merch.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="merch" data-sfx="blip">Merch</a>
+        <a href="sponsors.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="sponsors" data-sfx="blip">Sponsors</a>
+        <a href="contact.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="contact" data-sfx="blip">Contact Us</a>
+      </nav>
+
+      <!-- Audio Button & Mobile Toggle -->
+      <div class="flex items-center gap-2">
+        <button class="audio-toggle-btn flex items-center gap-1.5 px-3 py-1.5 bg-black/80 hover:bg-black font-pixel text-[10px] sm:text-xs tracking-wider border border-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer">
+          <img src="assets/sound icon.png" alt="Sound" class="audio-sound-icon w-4 h-4 object-contain opacity-60" />
+          <span class="font-bold audio-status-text">OFF</span>
+          <div class="audio-wave-bars hidden flex items-end gap-0.5 h-3 ml-0.5">
+            <span class="w-1 bg-[#00f0ff] animate-pulse h-2"></span>
+            <span class="w-1 bg-[#ff007f] animate-pulse h-3"></span>
+            <span class="w-1 bg-[#39ff14] animate-pulse h-1.5"></span>
+          </div>
+        </button>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-1.5 bg-[#f9a8f5] text-black font-pixel text-xs border border-black flex items-center justify-center cursor-pointer" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-3 p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.3)] flex flex-col gap-2">
+      <a href="index.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="index">Home</a>
+      <a href="about.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="about">About</a>
+      <a href="events.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="events">Events</a>
+      <a href="merch.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="merch">Merch</a>
+      <a href="sponsors.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="sponsors">Sponsors</a>
+      <a href="contact.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="contact">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Background Space Decor -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(25,10,45,0.7)_0%,_#05020c_75%)]"></div>
+    <div class="absolute top-[8%] right-[8%] w-24 h-24 opacity-35">
+      <img src="assets/planet.png" alt="Planet" class="w-full h-full object-contain" />
+    </div>
+    <div class="absolute top-[40%] left-[3%] w-24 h-24 opacity-25">
+      <img src="assets/side_planet.png" alt="Side Planet" class="w-full h-full object-contain" />
+    </div>
+    <div class="absolute top-[65%] right-[4%] w-28 h-28 opacity-30">
+      <img src="assets/satellite.png" alt="Satellite" class="w-full h-full object-contain" />
+    </div>
+    <div class="absolute inset-0 crt-scanlines opacity-25"></div>
+  </div>
+
+  <!-- Header & Filters -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-8 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-black border-2 border-[#ffe600] text-[#ffe600] font-pixel text-[10px] sm:text-xs tracking-wider mb-4 shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+      <span>ROADMAP // ALL 17 ARENAS</span>
+    </div>
+
+    <h1 class="font-pixel text-3xl sm:text-5xl lg:text-6xl text-white tracking-wide mb-3">
+      CHAMPIONSHIP <span class="text-[#ffe600] neon-yellow">ARENAS</span>
+    </h1>
+    <p class="font-vt323 text-xl sm:text-2xl text-zinc-300 max-w-2xl mx-auto mb-8">
+      Follow the Pac-Man route down through all 17 competition arenas, hackathons, and symposium tracks!
+    </p>
+
+    <!-- Search & Filters -->
+    <div class="max-w-4xl mx-auto mb-10 space-y-4">
+      <div class="relative w-full max-w-md mx-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input
+          id="events-search-input"
+          type="text"
+          placeholder="Search arena, track, or keyword..."
+          class="w-full pl-10 pr-4 py-2 bg-black/90 border-2 border-white/20 text-white font-vt323 text-lg focus:border-[#00f0ff] focus:outline-none"
+        />
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-2">
+        
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-[#ffe600] text-black font-bold shadow-[0_0_10px_#ffe600]" data-category="ALL">
+    ALL
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="24-Hour Flagship Hackathon">
+    24-Hour Flagship Hackathon
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Competitive Programming">
+    Competitive Programming
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Innovation Exhibition & Startup Stalls">
+    Innovation Exhibition & Startup Stalls
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Cybersecurity & Cryptography">
+    Cybersecurity & Cryptography
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Design & Product Experience">
+    Design & Product Experience
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Robotics & Hardware">
+    Robotics & Hardware
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Autonomous & FPV Robotics">
+    Autonomous & FPV Robotics
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Autonomous & Search Robotics">
+    Autonomous & Search Robotics
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Maker & Automation">
+    Maker & Automation
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Experiential Tech Zone">
+    Experiential Tech Zone
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Masterclasses & Workshops">
+    Masterclasses & Workshops
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Tech Talks & Panels">
+    Tech Talks & Panels
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Robotics Workshop">
+    Robotics Workshop
+  </button>
+
+
+  <button type="button" class="event-cat-btn px-3 py-1 font-pixel text-[9px] uppercase tracking-wider transition-all border cursor-pointer bg-black/80 text-zinc-400 border-white/20 hover:border-white hover:text-white" data-category="Festival Ceremony">
+    Festival Ceremony
+  </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Serpentine Roadmap Container -->
+  <div id="events-roadmap-container" class="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 pt-6 pb-20 flex flex-col justify-between" style="min-height: 4590px">
+    
+    <!-- Dots along the road -->
+    <div id="roadmap-dots-container" class="absolute inset-0 pointer-events-none hidden md:block z-20"></div>
+
+    <!-- Moving Pac-Man Runner -->
+    <div id="pacman-runner" class="absolute -translate-x-1/2 -translate-y-1/2 w-9 h-9 z-25 pointer-events-none drop-shadow-[0_0_15px_#ffe600] will-change-transform hidden md:block" style="left: 25%; top: 2.5%; transform: translate(-50%, -50%) rotate(0deg)">
+      <img src="assets/pacman.png" alt="Pac-Man" class="w-full h-full object-contain animate-pacman-chomp" />
+    </div>
+
+    <!-- Arena Cards -->
+    <div class="flex flex-col gap-8 sm:gap-10 relative z-30 pt-2">
+      
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="24-Hour Flagship Hackathon"
+         data-title="CRAFT N CODE '26"
+         data-subtitle="NATIONAL HACKATHON"
+         data-desc="Gear up for the ultimate National level Hackathon! 24-hour non-stop hackathon inviting brilliant minds nationwide to build creative solutions and solve real-world challenges.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 01
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            FIRST CHALLENGE AHEAD!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #1
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  CRAFT N CODE '26
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  NATIONAL HACKATHON
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                2 - 4 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Gear up for the ultimate National level Hackathon! 24-hour non-stop hackathon inviting brilliant minds nationwide to build creative solutions and solve real-world challenges.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+              <button onclick="openQualifiersModal('craft-n-code')" data-sfx="powerup" class="flex-1 py-1.5 px-2 bg-[#00f0ff] hover:bg-[#00f0ff]/90 text-black font-pixel text-[8px] sm:text-[9px] font-bold uppercase border border-white shadow-[0_0_8px_rgba(0,240,255,0.6)] cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+                <span>QUALIFIERS</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            
+
+            <button onclick="openEventDetails('craft-n-code')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+              <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="coin" class="py-1.5 px-2.5 bg-black hover:bg-white/10 text-[#ff7bf5] font-pixel text-[8px] sm:text-[9px] uppercase border border-[#ff7bf5]/40 hover:border-[#ff7bf5] cursor-pointer transition-all">
+                RULEBOOK
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Competitive Programming"
+         data-title="CODE KOMBAT"
+         data-subtitle="1V1 CODING BATTLE"
+         data-desc="ICPC-inspired programming tournament where coders face off in intense algorithmic challenges. Real-time elimination format testing coding speed, precision, and edge-case handling.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 02
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            1V1 BATTLE ROYALE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #2
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  CODE KOMBAT
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  1V1 CODING BATTLE
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                Teams / Solo
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              ICPC-inspired programming tournament where coders face off in intense algorithmic challenges. Real-time elimination format testing coding speed, precision, and edge-case handling.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('code-kombat')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+              <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="coin" class="py-1.5 px-2.5 bg-black hover:bg-white/10 text-[#ff7bf5] font-pixel text-[8px] sm:text-[9px] uppercase border border-[#ff7bf5]/40 hover:border-[#ff7bf5] cursor-pointer transition-all">
+                RULEBOOK
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Innovation Exhibition & Startup Stalls"
+         data-title="TECHXPO"
+         data-subtitle="INNOVATION ON DISPLAY"
+         data-desc="Curated exhibition where local startups, research labs, and student innovators showcase cutting-edge technology products and live prototypes to a nationwide audience.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ffe600] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 03
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            EXPLORE THE FUTURE
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #3
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  TECHXPO
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  INNOVATION ON DISPLAY
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                1 - 5 Members (Startups / Teams)
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Curated exhibition where local startups, research labs, and student innovators showcase cutting-edge technology products and live prototypes to a nationwide audience.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('techxpo')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+              <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="coin" class="py-1.5 px-2.5 bg-black hover:bg-white/10 text-[#ff7bf5] font-pixel text-[8px] sm:text-[9px] uppercase border border-[#ff7bf5]/40 hover:border-[#ff7bf5] cursor-pointer transition-all">
+                RULEBOOK
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Cybersecurity & Cryptography"
+         data-title="CTF ARENA"
+         data-subtitle="CYBERSEC DEFENSE BATTLE"
+         data-desc="Demonstrate cybersecurity expertise in defending digital assets and combating national security threats, financial fraud, vulnerability exploitation, and cyberattacks.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 04
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            CYBERSEC BATTLE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #4
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  CTF ARENA
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  CYBERSEC DEFENSE BATTLE
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                1 - 3 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Demonstrate cybersecurity expertise in defending digital assets and combating national security threats, financial fraud, vulnerability exploitation, and cyberattacks.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('ctf-arena')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Design & Product Experience"
+         data-title="UI/UX SHOWDOWN"
+         data-subtitle="DIGITAL EXPERIENCE SPRINT"
+         data-desc="Transform complex problem statements into intuitive, accessible, and aesthetically compelling UI/UX solutions emphasizing usability, accessibility, and design thinking.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 05
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            DESIGN SPRINT!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #5
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  UI/UX SHOWDOWN
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  DIGITAL EXPERIENCE SPRINT
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                1 - 2 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Transform complex problem statements into intuitive, accessible, and aesthetically compelling UI/UX solutions emphasizing usability, accessibility, and design thinking.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('ui-ux-showdown')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Robotics & Hardware"
+         data-title="BOT BOWL"
+         data-subtitle="ROBOSOCCER CHAMPIONSHIP"
+         data-desc="Adrenaline-charged RoboSoccer challenge where teams operate custom bots to dribble, pass, and score on a mini soccer field. Agility and engineering decide the victor.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ffe600] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 06
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            ROBOSOCCER ARENA!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #6
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  BOT BOWL
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  ROBOSOCCER CHAMPIONSHIP
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                2 - 4 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Adrenaline-charged RoboSoccer challenge where teams operate custom bots to dribble, pass, and score on a mini soccer field. Agility and engineering decide the victor.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('bot-bowl')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Autonomous & FPV Robotics"
+         data-title="FLYTRON"
+         data-subtitle="HIGH-SPEED DRONE RACING"
+         data-desc="Navigate high-speed aerial obstacle courses where surgical precision meets throttle control. Dominate the skies in thrilling competitive heats.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 07
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            RULE THE SKIES!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #7
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  FLYTRON
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  HIGH-SPEED DRONE RACING
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                1 - 3 Pilots
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Navigate high-speed aerial obstacle courses where surgical precision meets throttle control. Dominate the skies in thrilling competitive heats.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('flytron')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Robotics & Hardware"
+         data-title="ROBO RASH"
+         data-subtitle="ALL-TERRAIN ENDURANCE RUSH"
+         data-desc="Navigate mobile robots through rugged multi-surface tracks featuring gravel, sand, turf, and steep slopes with maximum stability and record time.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 08
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            ALL-TERRAIN CLASH!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #8
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  ROBO RASH
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  ALL-TERRAIN ENDURANCE RUSH
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                2 - 4 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Navigate mobile robots through rugged multi-surface tracks featuring gravel, sand, turf, and steep slopes with maximum stability and record time.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('robo-rash')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Autonomous & Search Robotics"
+         data-title="GROUND ZERO"
+         data-subtitle="DISASTER DETECTION QUEST"
+         data-desc="Deploy robotic explorers into simulated disaster zones to traverse rubble, detect metallic hazards, locate hidden resources, and identify signs of human life.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ffe600] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 09
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            SEARCH & RESCUE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #9
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  GROUND ZERO
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  DISASTER DETECTION QUEST
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                2 - 4 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Deploy robotic explorers into simulated disaster zones to traverse rubble, detect metallic hazards, locate hidden resources, and identify signs of human life.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('ground-zero')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Maker & Automation"
+         data-title="BUILDATHON"
+         data-subtitle="HARDWARE & PROTOTYPE SPRINT"
+         data-desc="A race against time to turn bold ideas into working solutions. Brainstorm, design, prototype, and present working electronics, software, or automation systems.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 10
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            PROTOTYPE RACE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #10
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  BUILDATHON
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  HARDWARE & PROTOTYPE SPRINT
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                2 - 5 Members
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              A race against time to turn bold ideas into working solutions. Brainstorm, design, prototype, and present working electronics, software, or automation systems.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('buildathon')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Experiential Tech Zone"
+         data-title="EXPERIENCE CENTER"
+         data-subtitle="STEP IN. EXPERIENCE THE FUTURE."
+         data-desc="An immersive zone where technology comes alive. Explore interactive demos, live robotics showcases, and hands-on automation experiences built by the Automation & Robotics Society.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 11
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            STEP INTO FUTURE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #11
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  EXPERIENCE CENTER
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  STEP IN. EXPERIENCE THE FUTURE.
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                Open to All
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              An immersive zone where technology comes alive. Explore interactive demos, live robotics showcases, and hands-on automation experiences built by the Automation & Robotics Society.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('experience-center')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Masterclasses & Workshops"
+         data-title="WORKSHOP.EXE"
+         data-subtitle="MASTERCLASS IN FUTURE TECH"
+         data-desc="Engage in hands-on learning with top industry experts covering Artificial Intelligence (AI), Blockchain, Web3, Augmented Reality (AR), and Virtual Reality (VR).">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ffe600] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 12
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            HANDS-ON LABS!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #12
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  WORKSHOP.EXE
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  MASTERCLASS IN FUTURE TECH
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                Solo
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Engage in hands-on learning with top industry experts covering Artificial Intelligence (AI), Blockchain, Web3, Augmented Reality (AR), and Virtual Reality (VR).
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('workshop-exe')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Tech Talks & Panels"
+         data-title="DEV DIALOGUE"
+         data-subtitle="INSPIRATIONAL TECH TALK"
+         data-desc="Leading industry visionaries and tech innovators dive into the latest breakthrough trends, sparking new ideas, expanding horizons, and shaping the future.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 13
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            INDUSTRY VISION!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #13
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  DEV DIALOGUE
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  INSPIRATIONAL TECH TALK
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                Open to All
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Leading industry visionaries and tech innovators dive into the latest breakthrough trends, sparking new ideas, expanding horizons, and shaping the future.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('dev-dialogue')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Robotics Workshop"
+         data-title="MECHLAB.IO"
+         data-subtitle="EMBEDDED & AUTONOMOUS SYSTEMS"
+         data-desc="Comprehensive hands-on workshop presented by the Automation and Robotics Society on Embedded Systems, IoT, RPA, Computer Vision, and Autonomous Navigation.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 14
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            ARS MASTERCLASS!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #14
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  MECHLAB.IO
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  EMBEDDED & AUTONOMOUS SYSTEMS
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                Solo / Duo
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Comprehensive hands-on workshop presented by the Automation and Robotics Society on Embedded Systems, IoT, RPA, Computer Vision, and Autonomous Navigation.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('mechlab-io')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Festival Ceremony"
+         data-title="WELCOMING CEREMONY"
+         data-subtitle="GRAND INAUGURATION"
+         data-desc="The official inauguration ceremony of D³ Fest 2026, unveiling 4 days of arcade engineering, special keynote announcements, and festivities.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ffe600] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 15
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            GRAND OPENING!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #15
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  WELCOMING CEREMONY
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  GRAND INAUGURATION
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                All Delegates
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              The official inauguration ceremony of D³ Fest 2026, unveiling 4 days of arcade engineering, special keynote announcements, and festivities.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('welcoming-ceremony')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-end md:ml-auto transition-all duration-200"
+         data-category="Festival Ceremony"
+         data-title="BITS OF PAST"
+         data-subtitle="RETRO COMMUNITY CELEBRATION"
+         data-desc="An inspiring retro retrospective and community celebration honoring tech evolution, student projects, and the timeless 80s arcade culture.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#00f0ff] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 16
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            RETRO RETROSPECTIVE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #16
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  BITS OF PAST
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  RETRO COMMUNITY CELEBRATION
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                All Attendees
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              An inspiring retro retrospective and community celebration honoring tech evolution, student projects, and the timeless 80s arcade culture.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('bits-of-past')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="arena-card-item w-full md:w-[48%] max-w-[580px] self-start md:mr-auto transition-all duration-200"
+         data-category="Festival Ceremony"
+         data-title="CLOSING CEREMONY"
+         data-subtitle="AWARDS GALA & GRAND SURPRISE"
+         data-desc="Summing up the fest with the announcement of the Grand Surprise, awards gala for tournament champions, and the official closing celebration.">
+      
+      <!-- Level Header -->
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 bg-[#ff7bf5] text-black font-pixel text-[9px] sm:text-[10px] font-bold tracking-widest border border-white">
+            LEVEL 17
+          </span>
+          <span class="font-pixel text-[8px] sm:text-[9px] text-[#ffe600] tracking-wider truncate max-w-[180px]">
+            GRAND FINALE!
+          </span>
+        </div>
+        <span class="font-pixel text-[8px] text-zinc-500 uppercase shrink-0">
+          ARENA #17
+        </span>
+      </div>
+
+      <!-- Main Box -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-2.5 p-3.5 sm:p-4 bg-black/95 border-2 border-[#ff7bf5] shadow-[0_0_15px_rgba(255,123,245,0.3)]">
+        <div class="flex-1 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-start justify-between gap-1.5 mb-1.5 border-b border-white/10 pb-1.5">
+              <div class="min-w-0">
+                <h3 class="font-pixel text-sm sm:text-base text-white tracking-wide truncate">
+                  CLOSING CEREMONY
+                </h3>
+                <p class="font-pixel text-[9px] sm:text-[10px] text-[#ff7bf5] uppercase tracking-wider truncate">
+                  AWARDS GALA & GRAND SURPRISE
+                </p>
+              </div>
+              <span class="font-vt323 text-xs text-[#00f0ff] shrink-0">
+                All Participants
+              </span>
+            </div>
+
+            <p class="font-vt323 text-sm sm:text-base text-zinc-300 leading-snug mb-3 line-clamp-2">
+              Summing up the fest with the announcement of the Grand Surprise, awards gala for tournament champions, and the official closing celebration.
+            </p>
+
+            <div class="grid grid-cols-3 gap-1 bg-[#090514] p-1.5 border border-white/10 font-vt323 text-xs text-zinc-300 mb-3 text-center">
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">DATE</span>
+                <strong class="text-[#00f0ff] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">TIME</span>
+                <strong class="text-[#ffe600] font-pixel text-[8px]">TBA</strong>
+              </div>
+              <div>
+                <span class="text-zinc-500 text-[9px] block leading-none">VENUE</span>
+                <strong class="text-[#39ff14] font-pixel text-[8px] truncate block">TBA </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-1 border-t border-white/10">
+            
+
+            <button onclick="openEventDetails('closing-ceremony')" data-sfx="blip" class="py-1.5 px-3 bg-black hover:bg-white/10 text-white font-pixel text-[8px] sm:text-[9px] uppercase border border-white/30 cursor-pointer active:scale-95 transition-all flex items-center justify-center gap-1">
+              DETAILS
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- Qualifiers Modal for Craft N Code '26 -->
+  <div id="qualifiers-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-xl bg-black border-2 border-[#00f0ff] p-6 shadow-[0_0_40px_rgba(0,240,255,0.4)]">
+      <button onclick="closeModal('qualifiers-modal')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#00f0ff] block mb-1">LEVEL 01 // NATIONAL QUALIFIERS</span>
+        <h3 class="font-pixel text-xl text-white mb-1">CRAFT N CODE '26</h3>
+        <p class="font-vt323 text-lg text-zinc-300">
+          Select your zonal qualifier pool on Unstop to compete in the offline finals at IIIT Bhubaneswar!
+        </p>
+      </div>
+
+      <div class="space-y-2 mb-6 max-h-60 overflow-y-auto pr-1">
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">Odisha (Host Zone)</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">West Bengal Zone</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">Delhi NCR Zone</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">Karnataka Zone</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">Maharashtra Zone</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+        <a href="https://unstop.com" target="_blank" rel="noreferrer" data-sfx="coin" class="flex items-center justify-between p-3 bg-[#090514] border border-white/20 hover:border-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all group">
+          <span class="font-vt323 text-xl text-white group-hover:text-[#00f0ff]">Online National Pool</span>
+          <div class="flex items-center gap-1 font-pixel text-[9px] text-[#ffe600]">
+            <span>ENTER POOL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-end">
+        <button onclick="closeModal('qualifiers-modal')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modals -->
+  
+  <div id="modal-craft-n-code" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-craft-n-code')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 01 // 24-Hour Flagship Hackathon</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">CRAFT N CODE '26</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">NATIONAL HACKATHON</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Gear up for the ultimate National level Hackathon! 24-hour non-stop hackathon inviting brilliant minds nationwide to build creative solutions and solve real-world challenges.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Central Computing Arena, IIIT-BH)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">2 - 4 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>24 Hours Non-Stop Coding</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Real-World Problem Statements</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Hardware & Software Tracks</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Direct Mentorship & Swag</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        
+          <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="powerup" class="px-4 py-2 bg-[#ff7bf5] text-black font-pixel text-xs font-bold uppercase hover:bg-[#ff7bf5]/90">
+            DOWNLOAD RULEBOOK
+          </a>
+        
+        <button onclick="closeModal('modal-craft-n-code')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-code-kombat" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-code-kombat')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 02 // Competitive Programming</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">CODE KOMBAT</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">1V1 CODING BATTLE</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        ICPC-inspired programming tournament where coders face off in intense algorithmic challenges. Real-time elimination format testing coding speed, precision, and edge-case handling.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Auditorium Projection Colosseum)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">Teams / Solo</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>1v1 Battles (Real-Time)</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Time-Bound Elimination Rounds</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Live Audience Arena Display</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Prove Your Algorithmic Skill</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        
+          <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="powerup" class="px-4 py-2 bg-[#ff7bf5] text-black font-pixel text-xs font-bold uppercase hover:bg-[#ff7bf5]/90">
+            DOWNLOAD RULEBOOK
+          </a>
+        
+        <button onclick="closeModal('modal-code-kombat')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-techxpo" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-techxpo')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 03 // Innovation Exhibition & Startup Stalls</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">TECHXPO</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">INNOVATION ON DISPLAY</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Curated exhibition where local startups, research labs, and student innovators showcase cutting-edge technology products and live prototypes to a nationwide audience.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Main Exhibition Quadrangle)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">1 - 5 Members (Startups / Teams)</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Live Startup & Project Booths</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Hands-On Interactive Demos</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Investor & CXO Networking</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Groundbreaking Real Innovation</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        
+          <a href="https://drive.google.com/file/d/1iyiSNVeNCb1sEuLReG3oIY8hC8bFBZ0u/view" target="_blank" rel="noreferrer" data-sfx="powerup" class="px-4 py-2 bg-[#ff7bf5] text-black font-pixel text-xs font-bold uppercase hover:bg-[#ff7bf5]/90">
+            DOWNLOAD RULEBOOK
+          </a>
+        
+        <button onclick="closeModal('modal-techxpo')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-ctf-arena" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-ctf-arena')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 04 // Cybersecurity & Cryptography</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">CTF ARENA</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">CYBERSEC DEFENSE BATTLE</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Demonstrate cybersecurity expertise in defending digital assets and combating national security threats, financial fraud, vulnerability exploitation, and cyberattacks.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Cyber Security Center)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">1 - 3 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Reverse Engineering & Exploits</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Cryptography & Web Sec</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Real-Time Flag Capture</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Digital Forensics Gauntlet</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-ctf-arena')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-ui-ux-showdown" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-ui-ux-showdown')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 05 // Design & Product Experience</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">UI/UX SHOWDOWN</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">DIGITAL EXPERIENCE SPRINT</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Transform complex problem statements into intuitive, accessible, and aesthetically compelling UI/UX solutions emphasizing usability, accessibility, and design thinking.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Design Studio)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">1 - 2 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>User Journey Mapping</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>High-Fidelity Wireframing</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Interactive Prototyping</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Live Design Jury Critique</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-ui-ux-showdown')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-bot-bowl" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-bot-bowl')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 06 // Robotics & Hardware</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">BOT BOWL</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">ROBOSOCCER CHAMPIONSHIP</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Adrenaline-charged RoboSoccer challenge where teams operate custom bots to dribble, pass, and score on a mini soccer field. Agility and engineering decide the victor.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (RoboSoccer Arena)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">2 - 4 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Fast-Paced Soccer Duels</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Tactical Bot Maneuvers</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Knockout Tournament Brackets</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Engineering Precision</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-bot-bowl')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-flytron" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-flytron')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 07 // Autonomous & FPV Robotics</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">FLYTRON</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">HIGH-SPEED DRONE RACING</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Navigate high-speed aerial obstacle courses where surgical precision meets throttle control. Dominate the skies in thrilling competitive heats.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Aerial Drone Cage)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">1 - 3 Pilots</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Acrobatic Air Gates</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Precision Throttle Control</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>High-Speed Lap Records</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>FPV Drone Spectator Feed</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-flytron')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-robo-rash" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-robo-rash')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 08 // Robotics & Hardware</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">ROBO RASH</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">ALL-TERRAIN ENDURANCE RUSH</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Navigate mobile robots through rugged multi-surface tracks featuring gravel, sand, turf, and steep slopes with maximum stability and record time.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (All-Terrain Obstacle Track)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">2 - 4 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Multi-Surface Terrain Tracks</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Steep Incline Challenges</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Durability & Suspension Tests</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Time-Attack Obstacle Run</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-robo-rash')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-ground-zero" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-ground-zero')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 09 // Autonomous & Search Robotics</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">GROUND ZERO</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">DISASTER DETECTION QUEST</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Deploy robotic explorers into simulated disaster zones to traverse rubble, detect metallic hazards, locate hidden resources, and identify signs of human life.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Disaster Arena)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">2 - 4 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Rugged Debris Traversal</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Target Sensor Recognition</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Emergency Search Protocol</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Autonomous Navigation</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-ground-zero')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-buildathon" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-buildathon')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 10 // Maker & Automation</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">BUILDATHON</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">HARDWARE & PROTOTYPE SPRINT</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        A race against time to turn bold ideas into working solutions. Brainstorm, design, prototype, and present working electronics, software, or automation systems.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Maker Space Lab)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">2 - 5 Members</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>12-Hour Hardware Sprint</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Rapid Circuit Prototyping</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>IoT & Automation Builds</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Live Functional Demonstration</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-buildathon')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-experience-center" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-experience-center')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 11 // Experiential Tech Zone</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">EXPERIENCE CENTER</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">STEP IN. EXPERIENCE THE FUTURE.</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        An immersive zone where technology comes alive. Explore interactive demos, live robotics showcases, and hands-on automation experiences built by the Automation & Robotics Society.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Central ARS Pavillion)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">Open to All</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Live Robotics Showcases</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Interactive Sensor Displays</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Automation Hands-On Demos</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Cutting-Edge Hardware R&D</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-experience-center')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-workshop-exe" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-workshop-exe')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 12 // Masterclasses & Workshops</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">WORKSHOP.EXE</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">MASTERCLASS IN FUTURE TECH</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Engage in hands-on learning with top industry experts covering Artificial Intelligence (AI), Blockchain, Web3, Augmented Reality (AR), and Virtual Reality (VR).
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Advanced Lab)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">Solo</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Hands-On Guided Labs</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>AI & Web3 Practical Tooling</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Industry Best Practices</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Take-Home Project Blueprint</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-workshop-exe')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-dev-dialogue" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-dev-dialogue')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 13 // Tech Talks & Panels</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">DEV DIALOGUE</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">INSPIRATIONAL TECH TALK</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Leading industry visionaries and tech innovators dive into the latest breakthrough trends, sparking new ideas, expanding horizons, and shaping the future.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Main Auditorium)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">Open to All</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Visionary Keynote Addresses</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Interactive Fireside Chats</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Audience Q&A Networking</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Front-Row Seat to Future Tech</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-dev-dialogue')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-mechlab-io" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-mechlab-io')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 14 // Robotics Workshop</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">MECHLAB.IO</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">EMBEDDED & AUTONOMOUS SYSTEMS</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Comprehensive hands-on workshop presented by the Automation and Robotics Society on Embedded Systems, IoT, RPA, Computer Vision, and Autonomous Navigation.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Robotics Center)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">Solo / Duo</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Microcontroller Programming</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Computer Vision & OpenCV</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>IoT Sensor Integration</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Real-World Robotics Testing</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-mechlab-io')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-welcoming-ceremony" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-welcoming-ceremony')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 15 // Festival Ceremony</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">WELCOMING CEREMONY</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">GRAND INAUGURATION</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        The official inauguration ceremony of D³ Fest 2026, unveiling 4 days of arcade engineering, special keynote announcements, and festivities.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Main Amphitheatre)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">All Delegates</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Dignitary Keynote Addresses</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Official Fest Opening Ceremony</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Special Announcements & Surprises</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Opening Swag & Delegate Kits</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-welcoming-ceremony')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-bits-of-past" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-bits-of-past')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 16 // Festival Ceremony</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">BITS OF PAST</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">RETRO COMMUNITY CELEBRATION</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        An inspiring retro retrospective and community celebration honoring tech evolution, student projects, and the timeless 80s arcade culture.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Quadrangle Arena)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">All Attendees</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Vintage Tech Gallery</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Retro High-Score Arcades</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Community Storytelling</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Nostalgia Music Jam</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-bits-of-past')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-closing-ceremony" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-[#ff7bf5] p-6 sm:p-8 shadow-[0_0_40px_rgba(255,123,245,0.4)] max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('modal-closing-ceremony')" class="absolute top-4 right-4 p-1 text-zinc-400 hover:text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="mb-4">
+        <span class="font-pixel text-[10px] text-[#ff7bf5] block mb-1">LEVEL 17 // Festival Ceremony</span>
+        <h2 class="font-pixel text-2xl text-white mb-1">CLOSING CEREMONY</h2>
+        <p class="font-pixel text-xs text-[#ffe600] uppercase tracking-wider">AWARDS GALA & GRAND SURPRISE</p>
+      </div>
+
+      <p class="font-vt323 text-xl text-zinc-200 leading-relaxed mb-6">
+        Summing up the fest with the announcement of the Grand Surprise, awards gala for tournament champions, and the official closing celebration.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-[#090514] border border-white/15 mb-6 text-center">
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">DATE</span>
+          <span class="font-pixel text-[10px] text-[#00f0ff]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TIME</span>
+          <span class="font-pixel text-[10px] text-[#ffe600]">TBA</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">VENUE</span>
+          <span class="font-pixel text-[9px] text-[#39ff14] truncate block">TBA (Main Auditorium)</span>
+        </div>
+        <div>
+          <span class="font-pixel text-[8px] text-zinc-500 block mb-1">TEAM SIZE</span>
+          <span class="font-pixel text-[9px] text-white">All Participants</span>
+        </div>
+      </div>
+
+      
+        <div class="mb-6">
+          <h4 class="font-pixel text-xs text-[#00f0ff] mb-3">WHAT AWAITS IN THIS ARENA:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Champion Trophy Honors</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Grand Surprise Reveal</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Commemorative Certificates</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 bg-black border border-white/15 text-zinc-300 font-vt323 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Official 2026 Fest Wrap-Up</span>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/20">
+        <div></div>
+        <button onclick="closeModal('modal-closing-ceremony')" class="px-5 py-2 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Retro Footer -->
+  <footer id="contact" class="relative w-full bg-[#030308] border-t-2 border-[#00f0ff]/30 text-white overflow-hidden">
+    <div class="absolute inset-0 crt-scanlines opacity-30 pointer-events-none"></div>
+
+    <div class="border-b border-white/10 bg-black/60 py-6 px-4">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 relative shrink-0">
+            <img src="assets/trophy.png" alt="Trophy" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <p class="font-pixel text-xs text-[#ffe600] tracking-wider">ALL-TIME HALL OF FAME</p>
+            <p class="font-vt323 text-base text-zinc-400">CAN YOU SET A NEW HIGH SCORE IN '26?</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+            <span class="font-pixel text-[10px] text-[#ff007f]">1ST</span>
+            <span class="font-vt323 text-lg text-[#00f0ff]">IIIT_CYBER</span>
+            <span class="font-pixel text-[9px] text-[#39ff14]">999,990 PTS</span>
+          </div>
+          <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+            <span class="font-pixel text-[10px] text-[#ff007f]">2ND</span>
+            <span class="font-vt323 text-lg text-[#00f0ff]">NEON_VIPER</span>
+            <span class="font-pixel text-[9px] text-[#39ff14]">845,200 PTS</span>
+          </div>
+          <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+            <span class="font-pixel text-[10px] text-[#ff007f]">3RD</span>
+            <span class="font-vt323 text-lg text-[#00f0ff]">GLITCH_BOY</span>
+            <span class="font-pixel text-[9px] text-[#39ff14]">720,150 PTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="relative w-10 h-10 border border-[#00f0ff] p-1 bg-black">
+            <img src="assets/logo.png" alt="D3 Logo" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <h4 class="font-pixel text-sm text-white">D³ FEST 2026</h4>
+            <p class="font-vt323 text-sm text-zinc-400">IIIT BHUBANESWAR</p>
+          </div>
+        </div>
+        <p class="font-vt323 text-lg text-zinc-400 leading-relaxed">
+          Organized by the Technical Society of International Institute of Information Technology Bhubaneswar.
+        </p>
+        <p class="font-pixel text-[9px] text-[#39ff14] tracking-widest animate-pulse">
+          CREDITS: 99 // GAME READY
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-pixel text-xs text-[#00f0ff] tracking-wider mb-2">WARP ZONES</h4>
+        <ul class="space-y-2 font-vt323 text-lg text-zinc-300">
+          <li><a href="index.html#hero" class="hover:text-[#00f0ff] transition-colors" data-sfx="blip">&gt; Hero Cabinet Entrance</a></li>
+          <li><a href="events.html" class="hover:text-[#ff007f] transition-colors" data-sfx="blip">&gt; Quest Roadmap &amp; Arenas</a></li>
+          <li><a href="merch.html" class="hover:text-[#ffe600] transition-colors" data-sfx="blip">&gt; Item Shop &amp; Merch</a></li>
+          <li><a href="gallery.html" class="hover:text-[#39ff14] transition-colors" data-sfx="start">&gt; Retro Memory Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="font-pixel text-xs text-[#ff007f] tracking-wider mb-2">RADAR COORDINATES</h4>
+        <p class="font-vt323 text-lg text-zinc-400">
+          IIIT Bhubaneswar Campus, Gothapatna, Malipada, Bhubaneswar, Odisha 751003
+        </p>
+        <div class="flex items-center gap-3 pt-2">
+          <a href="https://instagram.com/d3fest.iiitbh" target="_blank" rel="noreferrer" aria-label="Instagram" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#00f0ff] hover:text-[#00f0ff] hover:shadow-[0_0_12px_#00f0ff] transition-all" data-sfx="blip">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"></circle></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tech-society-iiitbh/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#ffe600] hover:text-[#ffe600] hover:shadow-[0_0_12px_#ffe600] transition-all" data-sfx="blip">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5" stroke="currentColor" stroke-width="1.8"></rect><path d="M8.2 10v5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><circle cx="8.2" cy="7.5" r="1" fill="currentColor"></circle><path d="M12.1 15.8V12.7c0-1.3.9-2.2 2.1-2.2 1.2 0 2 .8 2 2.3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a href="https://x.com/techsociiitbh" target="_blank" rel="noreferrer" aria-label="Twitter" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#39ff14] hover:text-[#39ff14] hover:shadow-[0_0_12px_#39ff14] transition-all" data-sfx="blip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 py-4 px-4 text-center bg-black/90">
+      <p class="font-pixel text-[9px] text-zinc-500 tracking-wider">
+        © 2026 D³ FEST // IIIT BHUBANESWAR. ALL RIGHTS RESERVED.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/festConfig.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function openQualifiersModal(evtId) {
+      if (window.RetroAudio) window.RetroAudio.playSfx('powerup');
+      const m = document.getElementById('qualifiers-modal');
+      if (m) m.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

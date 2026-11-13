@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05020c" />
+  <title>D³ FEST 2026 | IIIT Bhubaneswar</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    .nav-link {
+      clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+      border: 2px solid #000;
+      background-color: #f9a8f5;
+      color: #000;
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.3);
+    }
+    .nav-link:hover {
+      background-color: #ff7bf5;
+      transform: scale(1.05);
+    }
+    .nav-link.active {
+      background-color: #ff7bf5 !important;
+      box-shadow: 0 0 12px rgba(255, 123, 245, 0.8), inset 0 2px 0 rgba(255,255,255,0.7), inset 0 -2px 0 rgba(0,0,0,0.3) !important;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-[#05020c] text-white selection:bg-[#ff7bf5] selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Fixed Retro Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 py-3 px-3 sm:px-6 select-none pointer-events-auto transition-all duration-300 bg-transparent border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer group shrink-0" data-sfx="start">
+        <div class="relative w-28 sm:w-36 h-9 sm:h-11">
+          <img src="assets/logo.png" alt="D³ FEST - IIIT BHUBANESWAR" class="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-2 xl:gap-3.5">
+        <a href="index.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="index" data-sfx="blip">Home</a>
+        <a href="about.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="about" data-sfx="blip">About</a>
+        <a href="events.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="events" data-sfx="blip">Events</a>
+        <a href="merch.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="merch" data-sfx="blip">Merch</a>
+        <a href="sponsors.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="sponsors" data-sfx="blip">Sponsors</a>
+        <a href="contact.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="contact" data-sfx="blip">Contact Us</a>
+      </nav>
+
+      <!-- Audio Button & Mobile Toggle -->
+      <div class="flex items-center gap-2">
+        <button class="audio-toggle-btn flex items-center gap-1.5 px-3 py-1.5 bg-black/80 hover:bg-black font-pixel text-[10px] sm:text-xs tracking-wider border border-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer">
+          <img src="assets/sound icon.png" alt="Sound" class="audio-sound-icon w-4 h-4 object-contain opacity-60" />
+          <span class="font-bold audio-status-text">OFF</span>
+          <div class="audio-wave-bars hidden flex items-end gap-0.5 h-3 ml-0.5">
+            <span class="w-1 bg-[#00f0ff] animate-pulse h-2"></span>
+            <span class="w-1 bg-[#ff007f] animate-pulse h-3"></span>
+            <span class="w-1 bg-[#39ff14] animate-pulse h-1.5"></span>
+          </div>
+        </button>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-1.5 bg-[#f9a8f5] text-black font-pixel text-xs border border-black flex items-center justify-center cursor-pointer" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-3 p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.3)] flex flex-col gap-2">
+      <a href="index.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="index">Home</a>
+      <a href="about.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="about">About</a>
+      <a href="events.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="events">Events</a>
+      <a href="merch.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="merch">Merch</a>
+      <a href="sponsors.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="sponsors">Sponsors</a>
+      <a href="contact.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="contact">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full">
+    <!-- Hero Cabinet Zoom Section -->
+    <section id="hero" class="relative w-full min-h-screen bg-[#05020c]">
+      <div id="hero-pin-container" class="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center select-none">
+        
+        <!-- Retro Synthwave Horizon & 3D Perspective Grid -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-[18%] left-1/2 -translate-x-1/2 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-gradient-to-t from-[#ff007f] via-[#ffe600] to-orange-500 opacity-40 blur-md shadow-[0_0_80px_rgba(255,0,127,0.4)]"></div>
+          <div class="absolute bottom-0 left-0 right-0 h-[46vh] origin-bottom [transform:perspective(380px)_rotateX(62deg)]"
+               style="background-image:linear-gradient(to right, rgba(0, 240, 255, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 0, 127, 0.45) 1px, transparent 1px); background-size:36px 36px">
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent via-[#05020c]/70 to-[#05020c]"></div>
+          </div>
+          <div class="absolute inset-0 crt-scanlines opacity-30"></div>
+        </div>
+
+        <!-- Center Arcade Cabinet & Interactive Environment -->
+        <div id="arcade-cabinet-wrapper" class="relative z-20 flex items-center justify-center drop-shadow-[0_25px_60px_rgba(0,0,0,0.98)] will-change-transform" style="transform-origin: 50.0% 42.0%">
+          
+          <!-- Shell Image (Exact 1792:2400 fit with zero letterbox gap) -->
+          <div class="relative w-full h-full pointer-events-none z-10">
+            <img src="assets/arcade.png" alt="D³ FEST Arcade Machine" class="w-full h-full block select-none pointer-events-none" />
+          </div>
+
+          <!-- Arcade Coin Tray (Firmly grounded on the machine's control desk surface) -->
+          <div id="arcade-coin-tray" class="arcade-coin-tray select-none pointer-events-auto">
+            <!-- Ground shadow under tray on control desk wood -->
+            <div class="absolute -inset-1 bg-black/80 rounded-md blur-[2px] pointer-events-none"></div>
+
+            <!-- Metallic coin plate resting on control desk -->
+            <div class="relative w-full h-full bg-gradient-to-b from-[#2a2a3e] to-[#12121c] rounded-[3px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_3px_6px_rgba(0,0,0,0.9)] flex flex-col items-center justify-end pb-0.5">
+              <!-- Token Stack Container -->
+              <div class="relative w-6 h-7 sm:w-7 sm:h-8 flex items-center justify-center">
+                <!-- Drop shadow on the plate -->
+                <div class="absolute bottom-0 w-5 sm:w-6 h-1.5 bg-black/90 rounded-full blur-[1px]"></div>
+                <!-- Coin 3 (Bottom - ₹1) -->
+                <div id="coin-3" class="arcade-coin-token absolute w-5 h-5 sm:w-6 sm:h-6" style="bottom: 0px; z-index: 26;">
+                  ₹1
+                </div>
+                <!-- Coin 2 (Middle - ₹1) -->
+                <div id="coin-2" class="arcade-coin-token absolute w-5 h-5 sm:w-6 sm:h-6" style="bottom: 3.5px; z-index: 28;">
+                  ₹1
+                </div>
+                <!-- Coin 1 (Top - ₹1, ready to take flight) -->
+                <div id="coin-1" class="arcade-coin-token absolute w-5 h-5 sm:w-6 sm:h-6" style="bottom: 7px; z-index: 30; box-shadow: 0 0 10px #ffe600;">
+                  ₹1
+                </div>
+              </div>
+
+              <!-- Brass identification plaque -->
+              <div class="w-full flex items-center justify-center bg-black/80 border-t border-[#ffe600]/40 py-0.25">
+                <span class="text-[#ffe600] font-pixel text-[4px] sm:text-[4.5px] tracking-wider leading-none">3x ₹1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arcade Coin Slot Housing (Over the physical orange coin acceptor door) -->
+          <div id="arcade-coin-slot-housing">
+            <div id="arcade-coin-slot-target" class="relative w-full h-full bg-black/60 border border-orange-500/80 rounded-[1px] shadow-[0_0_8px_rgba(255,102,0,0.8)] overflow-hidden flex items-center justify-center">
+              <div id="coin-slot-flash" class="absolute inset-0 bg-[#39ff14] opacity-0 shadow-[0_0_15px_#39ff14,0_0_25px_#39ff14]"></div>
+              <div class="w-0.5 h-3 sm:h-4 bg-orange-400 shadow-[0_0_4px_#ff6600]"></div>
+            </div>
+          </div>
+
+          <!-- Glowing CRT Monitor Screen (Starts Completely Blank!) -->
+          <div id="arcade-crt-monitor" class="crt-screen-bezel select-none p-1.5 sm:p-2 text-white">
+            
+            <!-- CRT Phosphor Pixel Grid & Scanlines Overlay -->
+            <div class="absolute inset-0 crt-pixel-grid opacity-35 pointer-events-none z-40"></div>
+            <div class="absolute inset-0 crt-scanlines opacity-25 pointer-events-none z-40"></div>
+            <div class="absolute inset-0 pointer-events-none z-40" style="background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.88) 100%)"></div>
+
+            <!-- CRT Power-On Horizontal Streak Line -->
+            <div id="crt-streak-line" class="crt-streak-line"></div>
+
+            <!-- CRT Screen Power Glow / Flash Overlay -->
+            <div id="crt-power-flash" class="absolute inset-0 bg-[#00f0ff] opacity-0 pointer-events-none z-35"></div>
+
+            <!-- STAGE 0: BLUE WELCOME SCREEN WITH PIXELATED 🙏 -->
+            <div id="crt-stage-welcome" class="absolute inset-0 z-28 flex flex-col items-center justify-center p-2 opacity-0 pointer-events-none text-center" style="background: radial-gradient(circle at center, #0c2580 0%, #040e38 75%, #010414 100%);">
+              <div id="crt-namaste-icon" class="relative mb-1 flex flex-col items-center justify-center">
+                <div class="text-3xl sm:text-4xl filter drop-shadow-[0_0_12px_rgba(255,230,0,0.9)] select-none leading-none mb-1" style="image-rendering: pixelated;">
+                  🙏
+                </div>
+                <div class="font-pixel text-[6px] sm:text-[7.5px] text-[#ffe600] tracking-widest uppercase" style="text-shadow: 0 0 8px #ffe600;">
+                  NAMASTE
+                </div>
+              </div>
+              <div class="font-vt323 text-[12px] sm:text-[14px] text-[#00f0ff] tracking-wide" style="text-shadow: 0 0 6px #00f0ff;">
+                WELCOME TO D³ FEST 2026
+              </div>
+            </div>
+
+            <!-- STAGE 1: QUESTIONS ONE AT A TIME & LIVE STATUS -->
+            <div id="crt-stage-questions" class="relative z-20 flex-1 flex flex-col justify-between h-full opacity-0">
+              <!-- Top System Header -->
+              <div id="crt-sys-header" class="flex items-center justify-between border-b border-white/15 pb-0.5 opacity-0 shrink-0">
+                <div class="flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-ping"></span>
+                  <span class="font-pixel text-[4px] sm:text-[5.5px] text-[#39ff14] tracking-wider">D3-SYS // ONLINE</span>
+                </div>
+                <span id="crt-header-credits" class="font-pixel text-[4px] sm:text-[5.5px] text-[#ffe600]">CREDITS: 00</span>
+              </div>
+
+              <!-- Center Questions Container (ONE QUESTION AT A TIME) -->
+              <div class="relative flex-1 my-0.5 min-h-0 overflow-hidden flex items-center justify-center">
+                <!-- Question 1: Cyan Phosphor Reveal (Shown Alone) -->
+                <div id="crt-q1-wrap" class="absolute inset-0 flex flex-col items-center justify-center text-center p-1.5 sm:p-2 opacity-0 pointer-events-none">
+                  <p id="crt-q1" class="font-vt323 text-[13px] sm:text-[15px] md:text-[16px] text-[#00f0ff] leading-[1.2] tracking-wide break-words max-w-[210px]" style="text-shadow:0 0 8px rgba(0,240,255,0.9)">
+                    Are you ready to dream beyond the ordinary?
+                  </p>
+                </div>
+
+                <!-- Question 2: Neon Pink Phosphor Reveal (Shown Alone) -->
+                <div id="crt-q2-wrap" class="absolute inset-0 flex flex-col items-center justify-center text-center p-1.5 sm:p-2 opacity-0 pointer-events-none">
+                  <p id="crt-q2" class="font-vt323 text-[13px] sm:text-[15px] md:text-[16px] text-[#ff7bf5] leading-[1.2] tracking-wide break-words max-w-[210px]" style="text-shadow:0 0 8px rgba(255,123,245,0.9)">
+                    Ready to challenge everything you know?
+                  </p>
+                </div>
+
+                <!-- Question 3: Matrix Green Phosphor Reveal (Shown Alone) -->
+                <div id="crt-q3-wrap" class="absolute inset-0 flex flex-col items-center justify-center text-center p-1.5 sm:p-2 opacity-0 pointer-events-none">
+                  <p id="crt-q3" class="font-vt323 text-[13px] sm:text-[15px] md:text-[16px] text-[#39ff14] leading-[1.2] tracking-wide break-words max-w-[210px]" style="text-shadow:0 0 8px rgba(57,255,20,0.9)">
+                    Ready to build what doesn't exist yet?
+                  </p>
+                </div>
+
+                <!-- Pac-Man Chomp Strip & Insert Coin Prompt (Shown Alone after questions) -->
+                <div id="crt-prompt-strip" class="absolute inset-0 flex flex-col items-center justify-center text-center p-1.5 sm:p-2 opacity-0 pointer-events-none">
+                  <div class="flex items-center gap-1.5 mb-1 shrink-0">
+                    <div id="crt-character" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 animate-bounce">
+                      <img src="assets/pacman.png" alt="Arcade Hero" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_#ffe600]" />
+                    </div>
+                    <span class="font-pixel text-[4.5px] sm:text-[5.5px] text-[#ffe600] animate-pulse">● ● ●</span>
+                  </div>
+                  <div id="crt-insert-coin-prompt" class="px-2 py-0.5 bg-black/90 border border-[#ffe600] font-pixel text-[4.5px] sm:text-[5.5px] md:text-[6px] text-[#ffe600] tracking-wider animate-pulse whitespace-nowrap mb-1" style="text-shadow:0 0 8px rgba(255,230,0,0.85)">
+                    INSERT<br>3 COINS 
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Status Bar with Live Coin Count -->
+              <div id="crt-sys-footer" class="border-t border-white/15 pt-0.5 flex items-center justify-between font-pixel text-[4px] sm:text-[5px] text-zinc-300 opacity-0 shrink-0">
+                <span id="crt-coin-counter" class="text-[#ffe600]">COINS: <span id="coin-dots">○ ○ ○</span> ₹<span id="coin-val">0</span>/₹3</span>
+                <span id="crt-coin-sub" class="text-[#39ff14] animate-pulse">₹1 EACH &gt;</span>
+              </div>
+            </div>
+
+            <!-- STAGE 2: READY TO START (After all 3 coins enter) -->
+            <div id="crt-stage-ready" class="absolute inset-0 z-25 p-1.5 sm:p-2 flex flex-col justify-between opacity-0 pointer-events-none bg-[#020206]">
+              <div class="flex items-center justify-between border-b border-white/15 pb-0.5">
+                <span class="font-pixel text-[4px] sm:text-[5.5px] text-[#ffe600]">CREDITS: 03</span>
+                <span class="font-pixel text-[4px] sm:text-[5.5px] text-[#39ff14] animate-pulse">₹3 PAID // READY</span>
+              </div>
+
+              <div class="flex-1 flex flex-col items-center justify-center text-center gap-1 sm:gap-1.5">
+                <div class="font-pixel text-[8.5px] sm:text-[11px] md:text-[12px] text-white tracking-wider animate-pulse" style="text-shadow:0 0 10px #00f0ff, 0 0 20px #00f0ff">
+                  PLAYER 1 READY!
+                </div>
+                
+                <!-- Interactive Start Button -->
+                <button id="crt-press-start-btn" class="group px-2.5 py-1 bg-[#ffe600] text-black font-pixel text-[5px] sm:text-[6.5px] tracking-widest uppercase hover:bg-white transition-all transform hover:scale-105 shadow-[0_0_15px_#ffe600] cursor-pointer" data-sfx="start">
+                  <span class="animate-pulse">▶ PRESS START</span>
+                </button>
+
+                <span class="font-vt323 text-[10px] sm:text-xs text-zinc-400">OR SCROLL TO DIVE INTO THE ARENA</span>
+              </div>
+
+              <div class="border-t border-white/15 pt-0.5 flex items-center justify-around font-pixel text-[4px] sm:text-[5px] text-zinc-400">
+                <span class="text-[#00f0ff]">DREAM</span>
+                <span class="text-[#ff7bf5]">DARE</span>
+                <span class="text-[#39ff14]">DEVELOP</span>
+              </div>
+            </div>
+
+            <!-- STAGE 3: INITIALIZING / BOOT MATRIX (Visible during screen zoom) -->
+            <div id="crt-stage-boot" class="absolute inset-0 z-30 p-2 sm:p-2.5 bg-black flex flex-col justify-center items-center opacity-0 pointer-events-none text-center">
+              <div class="w-full max-w-[200px] space-y-1 sm:space-y-1.5">
+                <div class="font-pixel text-[5.5px] sm:text-[7px] text-[#00f0ff] tracking-widest animate-pulse">
+                  D3 ENTERTAINMENT SYSTEM
+                </div>
+                <div class="font-vt323 text-[11px] sm:text-xs text-zinc-300 leading-tight">
+                  INITIALIZING ARENA MATRIX...
+                </div>
+                <div class="font-pixel text-[5px] sm:text-[6px] text-[#ffe600]">
+                  LOADING WORLD 01
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full h-1 sm:h-1.5 bg-zinc-900 border border-white/30 p-0.5 overflow-hidden">
+                  <div id="crt-boot-progress-bar" class="h-full bg-gradient-to-r from-[#00f0ff] via-[#ff007f] to-[#39ff14] w-0"></div>
+                </div>
+                <div class="font-pixel text-[4px] sm:text-[5px] text-[#39ff14]">
+                  SYNCHRONIZING 17 ARENAS... 100%
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Inner Arena Overlay (Revealed on Scroll/Zoom) -->
+        <div id="hero-arena-overlay" class="absolute inset-0 z-30 flex flex-col justify-between items-center py-20 px-4 sm:px-8 opacity-0 pointer-events-none">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(25,10,50,0.85)_0%,_#05020c_85%)] pointer-events-none"></div>
+          <div class="absolute inset-0 crt-scanlines opacity-20 pointer-events-none"></div>
+
+          <div class="relative z-20 w-full max-w-7xl my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8 pb-10">
+            <div class="lg:col-span-7 flex flex-col items-start gap-2 sm:gap-3 pl-2 sm:pl-6">
+              <h1 class="font-pixel text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider text-[#00f0ff] uppercase" style="text-shadow:0 6px 0 #005f73, 0 10px 0 #002b36, 0 0 25px rgba(0, 240, 255, 0.6)">DREAM</h1>
+              <h2 class="font-pixel text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider text-[#ff7bf5] uppercase" style="text-shadow:0 6px 0 #9d0208, 0 10px 0 #370617, 0 0 25px rgba(255, 123, 245, 0.6)">DARE</h2>
+              <h3 class="font-pixel text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider text-[#39ff14] uppercase" style="text-shadow:0 6px 0 #208b3a, 0 10px 0 #0f4c1e, 0 0 25px rgba(57, 255, 20, 0.6)">DEVELOP</h3>
+
+              <div class="flex items-center gap-2 mt-4 pt-2">
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#00f0ff;box-shadow:0 0 6px #00f0ff"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ff007f;box-shadow:0 0 6px #ff007f"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ffe600;box-shadow:0 0 6px #ffe600"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#39ff14;box-shadow:0 0 6px #39ff14"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#00f0ff;box-shadow:0 0 6px #00f0ff"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ff007f;box-shadow:0 0 6px #ff007f"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ffe600;box-shadow:0 0 6px #ffe600"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#39ff14;box-shadow:0 0 6px #39ff14"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#00f0ff;box-shadow:0 0 6px #00f0ff"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ff007f;box-shadow:0 0 6px #ff007f"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#ffe600;box-shadow:0 0 6px #ffe600"></span>
+                <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-none" style="background-color:#39ff14;box-shadow:0 0 6px #39ff14"></span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col items-start lg:items-center justify-center gap-4 pr-2 sm:pr-6">
+              <a href="#pacman-section" class="group flex items-center gap-3 sm:gap-4 p-4 hover:scale-105 transition-transform cursor-pointer" data-sfx="start">
+                <div class="relative w-12 sm:w-14 h-12 sm:h-14 shrink-0 animate-pacman-chomp">
+                  <img src="assets/pacman.png" alt="Pac-Man" class="w-full h-full object-contain filter drop-shadow-[0_0_12px_#ffe600]" />
+                </div>
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <span class="w-2.5 h-2.5 bg-[#ffe600] shadow-[0_0_8px_#ffe600]"></span>
+                  <span class="w-2.5 h-2.5 bg-[#ffe600] shadow-[0_0_8px_#ffe600]"></span>
+                  <span class="w-2.5 h-2.5 bg-[#ffe600] shadow-[0_0_8px_#ffe600]"></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[#ffe600] shrink-0 group-hover:translate-x-1.5 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+                <span class="font-pixel text-xl sm:text-3xl text-[#ffe600] tracking-wider uppercase group-hover:text-white transition-colors" style="text-shadow:0 0 15px rgba(255, 230, 0, 0.8)">LET'S START</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom stats row -->
+          <div class="relative z-20 w-full max-w-6xl border-t border-white/20 pt-6 pb-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 items-center justify-between text-center">
+              <div class="flex items-center justify-center gap-2.5 sm:gap-3">
+                <div class="relative w-6 sm:w-8 h-6 sm:h-8 shrink-0">
+                  <img src="assets/trophy.png" alt="EVENTS" class="w-full h-full object-contain" />
+                </div>
+                <div class="flex flex-col text-left">
+                  <span class="font-pixel text-xs sm:text-sm font-bold text-white tracking-wider">20+</span>
+                  <span class="font-pixel text-[8px] sm:text-[9px] text-[#00f0ff] tracking-widest">EVENTS</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-center gap-2.5 sm:gap-3">
+                <div class="relative w-6 sm:w-8 h-6 sm:h-8 shrink-0">
+                  <img src="assets/star.png" alt="PRIZE POOL" class="w-full h-full object-contain" />
+                </div>
+                <div class="flex flex-col text-left">
+                  <span class="font-pixel text-xs sm:text-sm font-bold text-white tracking-wider">1.9L+</span>
+                  <span class="font-pixel text-[8px] sm:text-[9px] text-[#00f0ff] tracking-widest">PRIZE POOL</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-center gap-2.5 sm:gap-3">
+                <div class="relative w-6 sm:w-8 h-6 sm:h-8 shrink-0">
+                  <img src="assets/group.png" alt="PARTICIPANTS" class="w-full h-full object-contain" />
+                </div>
+                <div class="flex flex-col text-left">
+                  <span class="font-pixel text-xs sm:text-sm font-bold text-white tracking-wider">3,200+</span>
+                  <span class="font-pixel text-[8px] sm:text-[9px] text-[#00f0ff] tracking-widest">PARTICIPANTS</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-center gap-2.5 sm:gap-3">
+                <div class="relative w-6 sm:w-8 h-6 sm:h-8 shrink-0">
+                  <img src="assets/heart.png" alt="NON-STOP" class="w-full h-full object-contain" />
+                </div>
+                <div class="flex flex-col text-left">
+                  <span class="font-pixel text-xs sm:text-sm font-bold text-white tracking-wider">4 Days</span>
+                  <span class="font-pixel text-[8px] sm:text-[9px] text-[#00f0ff] tracking-widest">NON-STOP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll / Start Prompt -->
+        <div id="hero-scroll-prompt" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 select-none cursor-pointer group max-w-[94vw] text-center" onclick="window.startArcadeExperience && window.startArcadeExperience()">
+          <div class="px-3 sm:px-4 py-1.5 sm:py-2 group-hover:border-[#ffe600] text-[#00f0ff] group-hover:text-[#ffe600] font-pixel text-[8px] sm:text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_20px_#ffe600] transition-all">
+            <span class="hidden sm:inline">SCROLL TO ENTER ARCADE</span>
+            <span class="sm:hidden">SCROLL TO ENTER</span>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#ff007f] animate-bounce"><path d="m6 9 6 6 6-6"></path></svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Native Interactive Pac-Man Quest Arena (Direct Continuation of Hero) -->
+    <section id="pacman-section" class="relative w-full bg-[#05020c] border-t-2 border-[#00f0ff]/30 text-white select-none">
+      <div id="scrollTrack" class="relative w-full">
+
+        <!-- Sticky viewport frame holding the arcade experience -->
+        <div id="pacman-sticky-wrap" class="sticky top-0 left-0 w-full h-screen flex flex-col justify-between items-center p-2 sm:p-4 overflow-hidden z-20" style="transition: opacity 0.35s ease-out;">
+
+          <!-- Sleek Marquee Top Bar -->
+          <div class="w-full max-w-5xl flex items-center justify-between px-3 py-1.5 bg-black/80 border border-[#00f0ff]/40 rounded-t-lg z-30 shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#ffe600] animate-pulse"></span>
+              <span class="font-pixel text-[10px] sm:text-xs text-[#00f0ff] tracking-widest">D3 FEST &bull; PAC-MAN QUEST ARENA</span>
+            </div>
+            <div class="flex items-center gap-3 font-pixel text-[9px] sm:text-[10px] text-zinc-400">
+              <span class="text-[#39ff14] animate-pulse">● LIVE RUN</span>
+              <span class="hidden sm:inline text-zinc-500">//</span>
+              <span class="text-[#ffe600]">17 TECH LEVELS</span>
+            </div>
+          </div>
+
+          <!-- Main Retro Arcade Cabinet -->
+          <main class="relative w-full max-w-5xl flex-1 flex flex-col justify-center items-center my-1 sm:my-2 min-h-0">
+            <div id="stage" class="w-full flex flex-col items-center">
+              <div id="arcadeCabinet" class="relative w-full bg-black border-4 border-[#2121ff] outline outline-2 outline-blue-900 rounded-xl p-2.5 sm:p-4 glow-blue crt-overlay overflow-hidden shadow-[0_0_30px_rgba(33,33,255,0.4)]">
+
+                <!-- Arcade HUD Top -->
+                <div class="grid grid-cols-3 text-center mb-2 font-pixel text-[9px] sm:text-xs leading-relaxed z-30 relative">
+                  <div>
+                    <div class="text-gray-400">1UP</div>
+                    <div id="scoreEl" class="text-[#ffb8ff] font-bold text-xs sm:text-sm">00000</div>
+                  </div>
+                  <div>
+                    <div class="text-[#ffe600] tracking-wider glow-yellow"></div>
+                    <div id="statusEl" class="text-[#00ffff] text-[9px] sm:text-xs font-bold truncate">READY!</div>
+                  </div>
+                  <div>
+                    <div class="text-gray-400">HIGH SCORE</div>
+                    <div id="highScoreEl" class="text-[#ffb8ff] font-bold text-xs sm:text-sm">99990</div>
+                  </div>
+                </div>
+
+                <!-- Main Game Canvas Container -->
+                <div id="canvasContainer" class="relative w-full aspect-[41/15] bg-black border-2 border-[#2121ff] rounded overflow-hidden">
+                  <canvas id="gameCanvas" width="820" height="300" class="w-full h-full block"></canvas>
+
+                  <!-- Start Overlay with simulated mouse click -->
+                  <div id="startOverlay" class="absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4 z-30 transition-opacity duration-300">
+                    <h1 class="font-pixel text-base sm:text-2xl text-[#ffe600] text-center glow-yellow mb-2 tracking-wider">
+                      PAC-MAN<br><span class="text-[#00ffff] text-xs sm:text-lg">QUEST ARENA</span>
+                    </h1>
+                    <p class="font-mono text-gray-300 text-[10px] sm:text-xs text-center max-w-md mb-6 leading-relaxed">
+                      SCROLL DOWN TO INITIATE GAMEPLAY &amp; EXPLORE ALL 17 TECH EVENTS!
+                    </p>
+                    <div id="startBtn" class="relative group font-pixel text-xs sm:text-sm bg-[#ffe600] text-black px-6 py-3 border-4 border-white shadow-[4px_4px_0px_#ff0000] cursor-pointer select-none hover:scale-105 active:scale-95" style="transition: background-color .12s, box-shadow .12s, transform .12s;">
+                      ARE YOU READY?
+                    </div>
+                    <div class="mt-4 flex items-center gap-2 font-pixel text-[9px] text-[#ffb8ff]">
+                      <span>SCROLL DOWN TO ADVANCE</span>
+                      <span class="animate-bounce-slow">▼</span>
+                    </div>
+                  </div>
+
+                  <!-- Level placard: grows out of the eaten fruit's position -->
+                  <div id="eventPopup" class="absolute w-[94%] sm:w-[340px] glass-arcade border-2 border-[#ffe600] rounded-xl p-3 sm:p-4 shadow-2xl z-40" style="opacity:0; pointer-events:none; left:0; top:0;">
+                    <div class="flex items-center justify-between gap-2 border-b border-[#ffe600]/30 pb-2 mb-2">
+                      <div class="flex items-center gap-2">
+                        <span id="popupFruitIcon" class="text-xl">🍒</span>
+                        <span id="eventIdTag" class="font-pixel text-[10px] sm:text-xs text-[#ffe600] px-2 py-0.5 rounded bg-[#ffe600]/20 border border-[#ffe600]/40">LEVEL 01</span>
+                      </div>
+                      <span id="popupCategory" class="font-pixel text-[8px] sm:text-[9px] text-[#00ffff] uppercase tracking-wider text-right">FLAGSHIP HACKATHON</span>
+                    </div>
+
+                    <h3 id="popupTitle" class="font-pixel text-xs sm:text-sm text-white glow-yellow mb-2 leading-snug">CRAFT N CODE '26</h3>
+                    <p id="popupDesc" class="font-sans text-[11px] sm:text-xs text-gray-200 mb-2 leading-relaxed">24-hour non-stop hackathon.</p>
+
+                    <div class="grid grid-cols-2 gap-2 font-mono text-[10px] bg-black/60 p-2 rounded-lg border border-[#2121ff]/40">
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-[#ffb8ff] font-bold">🏆 PRIZE:</span>
+                        <span id="popupPrize" class="text-[#ffe600] font-bold">₹50,000</span>
+                      </div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-[#00ffff] font-bold">⏰</span>
+                        <span id="popupDate" class="text-gray-300">DAY 1 - 09:00 AM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Classic Bottom HUD -->
+                <div class="flex justify-between items-center mt-2 px-2 py-1 min-h-[28px]">
+                  <canvas id="livesCanvas" width="120" height="24" class="h-6"></canvas>
+                  <div id="eventCountBadge" class="font-pixel text-[9px] text-[#ffe600] px-2 py-1 rounded bg-[#2121ff]/20 border border-[#2121ff]/40">
+                    LEVELS CLEARED: <span id="unlockedCount" class="text-[#00ffff]">0</span>/17
+                  </div>
+                  <canvas id="fruitsCanvas" width="160" height="24" class="h-6"></canvas>
+                </div>
+              </div>
+
+              <!-- Finale: IIIT Bhubaneswar branding -->
+              <div id="finaleBranding" class="w-full flex flex-col items-center">
+                <div class="pt-1.5 sm:pt-2 pb-1 flex flex-col items-center w-full">
+                  <h2 id="brandTitle" class="font-pixel text-sm sm:text-2xl text-center text-[#ffe600] glow-yellow tracking-widest mb-1" style="image-rendering: pixelated;" aria-label="IIIT BHUBANESWAR"></h2>
+                  <p id="brandSub" class="font-pixel text-[8.5px] sm:text-[10px] text-[#00ffff] text-center tracking-wider mb-1.5" style="opacity:0; transition: opacity .6s;">
+                    PRESENTS D3FEST 2026 &bull; ANNUAL TECH FESTIVAL
+                  </p>
+                  <div id="jumpWrap" class="w-full max-w-3xl bg-black/90 border border-[#2121ff]/60 rounded-xl p-2 sm:p-2.5 backdrop-blur shadow-2xl" style="opacity:0; transition: opacity .6s;">
+                    <h4 class="font-pixel text-[8px] sm:text-[9.5px] text-[#ffb8ff] text-center mb-1.5">EXPLORE ALL 17 LEVELS</h4>
+                    <div id="eventJumpGrid" class="grid grid-cols-6 sm:grid-cols-9 gap-1 sm:gap-1.5 text-center"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </main>
+
+          <!-- Bottom Hint Bar -->
+          <footer class="w-full max-w-5xl flex justify-between items-center px-4 py-1.5 rounded-lg bg-black/80 border border-gray-800 text-[10px] font-pixel text-gray-400 z-30 shrink-0">
+            <span class="hidden sm:inline text-[#00ffff]">TIP: SCROLL UP &amp; DOWN TO REWIND / FAST-FORWARD</span>
+            <span class="sm:hidden text-[#00ffff]">SCROLL TO PLAY</span>
+            <button id="scrollToTopBtn" class="hover:text-[#ffe600] transition-colors cursor-pointer flex items-center gap-1">
+              <span>TOP</span> ▲
+            </button>
+          </footer>
+
+        </div>
+      </div>
+
+      <!-- Simulated retro mouse cursor -->
+      <svg id="simulatedCursor" class="fixed top-0 left-0 w-8 h-8 z-50 pointer-events-none drop-shadow-[0_0_8px_rgba(255,255,0,0.8)]" viewBox="0 0 24 24" fill="none" style="transform: translate(40px, 40px); opacity: 0;">
+        <path d="M3 3l7 18 3-7 7-3L3 3z" fill="#ffff00" stroke="#000000" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </section>
+
+    <!-- Retro Footer -->
+    <footer id="contact" class="relative w-full bg-[#030308] border-t-2 border-[#00f0ff]/30 text-white overflow-hidden">
+      <div class="absolute inset-0 crt-scanlines opacity-30 pointer-events-none"></div>
+
+      <!-- Hall of Fame Banner -->
+      <div class="border-b border-white/10 bg-black/60 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 relative shrink-0">
+              <img src="assets/trophy.png" alt="Trophy" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <p class="font-pixel text-xs text-[#ffe600] tracking-wider">ALL-TIME HALL OF FAME</p>
+              <p class="font-vt323 text-base text-zinc-400">CAN YOU SET A NEW HIGH SCORE IN '26?</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">1ST</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">IIIT_CYBER</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">999,990 PTS</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">2ND</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">NEON_VIPER</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">845,200 PTS</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">3RD</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">GLITCH_BOY</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">720,150 PTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Links -->
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="relative w-10 h-10 border border-[#00f0ff] p-1 bg-black">
+              <img src="assets/logo.png" alt="D3 Logo" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <h4 class="font-pixel text-sm text-white">D³ FEST 2026</h4>
+              <p class="font-vt323 text-sm text-zinc-400">IIIT BHUBANESWAR</p>
+            </div>
+          </div>
+          <p class="font-vt323 text-lg text-zinc-400 leading-relaxed">
+            Organized by the Technical Society of International Institute of Information Technology Bhubaneswar.
+          </p>
+          <p class="font-pixel text-[9px] text-[#39ff14] tracking-widest animate-pulse">
+            CREDITS: 99 // GAME READY
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-pixel text-xs text-[#00f0ff] tracking-wider mb-2">WARP ZONES</h4>
+          <ul class="space-y-2 font-vt323 text-lg text-zinc-300">
+            <li><a href="#hero" class="hover:text-[#00f0ff] transition-colors" data-sfx="blip">&gt; Hero Cabinet Entrance</a></li>
+            <li><a href="#pacman-section" class="hover:text-[#ffe600] transition-colors" data-sfx="start">&gt; D3 PAC-MAN Game &amp; Levels</a></li>
+            <li><a href="events.html" class="hover:text-[#ff007f] transition-colors" data-sfx="blip">&gt; Quest Roadmap &amp; Arenas</a></li>
+            <li><a href="merch.html" class="hover:text-[#ffe600] transition-colors" data-sfx="blip">&gt; Item Shop &amp; Merch</a></li>
+            <li><a href="gallery.html" class="hover:text-[#39ff14] transition-colors" data-sfx="start">&gt; Retro Memory Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="font-pixel text-xs text-[#ff007f] tracking-wider mb-2">RADAR COORDINATES</h4>
+          <p class="font-vt323 text-lg text-zinc-400">
+            IIIT Bhubaneswar Campus, Gothapatna, Malipada, Bhubaneswar, Odisha 751003
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com/d3fest.iiitbh" target="_blank" rel="noreferrer" aria-label="Instagram" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#00f0ff] hover:text-[#00f0ff] hover:shadow-[0_0_12px_#00f0ff] transition-all" data-sfx="blip">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"></circle></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/tech-society-iiitbh/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#ffe600] hover:text-[#ffe600] hover:shadow-[0_0_12px_#ffe600] transition-all" data-sfx="blip">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5" stroke="currentColor" stroke-width="1.8"></rect><path d="M8.2 10v5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><circle cx="8.2" cy="7.5" r="1" fill="currentColor"></circle><path d="M12.1 15.8V12.7c0-1.3.9-2.2 2.1-2.2 1.2 0 2 .8 2 2.3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a href="https://x.com/techsociiitbh" target="_blank" rel="noreferrer" aria-label="Twitter" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#39ff14] hover:text-[#39ff14] hover:shadow-[0_0_12px_#39ff14] transition-all" data-sfx="blip">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 py-4 px-4 text-center bg-black/90">
+        <p class="font-pixel text-[9px] text-zinc-500 tracking-wider">
+          © 2026 D³ FEST // IIIT BHUBANESWAR. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/festConfig.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pacman-game.js"></script>
+</body>
+</html>

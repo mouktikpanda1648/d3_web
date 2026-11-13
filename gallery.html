@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05020c" />
+  <title>Memory Gallery | D³ FEST 2026 | IIIT Bhubaneswar</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    .retro-back-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-steve), 'Press Start 2P', monospace;
+      letter-spacing: 0.1em;
+      border: none;
+      background: #ff7bf5;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 123, 245, 0.6);
+    }
+    .retro-back-btn:hover {
+      background: #ff007f;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-[#05020c] text-white selection:bg-[#ff7bf5] selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Gallery Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 py-3 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2" data-sfx="start">
+      <img src="assets/logo.png" alt="D³ Fest 2026" class="h-auto w-[120px] sm:w-[150px] object-contain" />
+    </a>
+
+    <div class="flex items-center gap-3">
+      <button class="audio-toggle-btn flex items-center gap-1.5 px-3 py-1.5 bg-black/80 hover:bg-black font-pixel text-[10px] sm:text-xs tracking-wider border border-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer">
+        <img src="assets/sound icon.png" alt="Sound" class="audio-sound-icon w-4 h-4 object-contain opacity-60" />
+        <span class="font-bold audio-status-text">OFF</span>
+        <div class="audio-wave-bars hidden flex items-end gap-0.5 h-3 ml-0.5">
+          <span class="w-1 bg-[#00f0ff] animate-pulse h-2"></span>
+          <span class="w-1 bg-[#ff007f] animate-pulse h-3"></span>
+          <span class="w-1 bg-[#39ff14] animate-pulse h-1.5"></span>
+        </div>
+      </button>
+
+      <a href="index.html" class="retro-back-btn px-4 py-2 text-xs sm:text-sm uppercase flex items-center gap-2 cursor-pointer transition-all" data-sfx="blip">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        <span>BACK TO HQ</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-20">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-black border-2 border-[#39ff14] text-[#39ff14] font-pixel text-[10px] sm:text-xs tracking-wider mb-4 shadow-[0_0_12px_rgba(57,255,20,0.3)]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        <span>RETRO MEMORY ARCHIVES</span>
+      </div>
+
+      <h1 class="font-pixel text-3xl sm:text-5xl text-white tracking-wide mb-3">
+        FEST <span class="text-[#39ff14] neon-green">GALLERY</span>
+      </h1>
+      <p class="font-vt323 text-xl sm:text-2xl text-zinc-300">
+        Relive moments of high energy, code kombats, hackathons, and arcade celebrations from past editions.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0146.JPG', 'DSC 0146')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0146.JPG" alt="DSC 0146" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0146</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #1</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0231.JPG', 'DSC 0231')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0231.JPG" alt="DSC 0231" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0231</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #2</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0233.JPG', 'DSC 0233')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0233.JPG" alt="DSC 0233" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0233</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #3</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0245.JPG', 'DSC 0245')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0245.JPG" alt="DSC 0245" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0245</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #4</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0260.JPG', 'DSC 0260')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0260.JPG" alt="DSC 0260" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0260</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #5</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0365.JPG', 'DSC 0365')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0365.JPG" alt="DSC 0365" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0365</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #6</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_0368.JPG', 'DSC 0368')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_0368.JPG" alt="DSC 0368" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 0368</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #7</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_1648.jpg', 'DSC 1648')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_1648.jpg" alt="DSC 1648" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 1648</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #8</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_1651.jpg', 'DSC 1651')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_1651.jpg" alt="DSC 1651" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 1651</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #9</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_1655.jpg', 'DSC 1655')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_1655.jpg" alt="DSC 1655" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 1655</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #10</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_1931.JPG', 'DSC 1931')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_1931.JPG" alt="DSC 1931" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 1931</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #11</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_2072.JPG', 'DSC 2072')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_2072.JPG" alt="DSC 2072" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 2072</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #12</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_2131.JPG', 'DSC 2131')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_2131.JPG" alt="DSC 2131" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 2131</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #13</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_2176.JPG', 'DSC 2176')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_2176.JPG" alt="DSC 2176" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 2176</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #14</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_2180.JPG', 'DSC 2180')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_2180.JPG" alt="DSC 2180" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 2180</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #15</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/DSC_2275.JPG', 'DSC 2275')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/DSC_2275.JPG" alt="DSC 2275" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">DSC 2275</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #16</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_20251109_164650547.jpg', 'IMG 20251109 164650547')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_20251109_164650547.jpg" alt="IMG 20251109 164650547" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 20251109 164650547</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #17</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_4227.JPG', 'IMG 4227')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_4227.JPG" alt="IMG 4227" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 4227</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #18</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_4595.JPG', 'IMG 4595')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_4595.JPG" alt="IMG 4595" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 4595</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #19</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_4677.JPG', 'IMG 4677')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_4677.JPG" alt="IMG 4677" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 4677</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #20</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_4902.JPG', 'IMG 4902')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_4902.JPG" alt="IMG 4902" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 4902</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #21</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+
+  <div class="gallery-card group relative p-2 bg-black/90 border-2 border-white/20 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer overflow-hidden" onclick="openPhotoModal('gallery/IMG_5140.JPG', 'IMG 5140')" data-sfx="blip">
+    <div class="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
+      <img src="gallery/IMG_5140.JPG" alt="IMG 5140" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+        <span class="font-pixel text-[10px] text-[#ffe600]">IMG 5140</span>
+      </div>
+    </div>
+    <div class="mt-2 flex items-center justify-between font-vt323 text-base text-zinc-400">
+      <span>MEMORY #22</span>
+      <span class="text-[#00f0ff] font-pixel text-[8px]">VIEW &gt;</span>
+    </div>
+  </div>
+
+    </div>
+  </main>
+
+  <!-- Photo Modal -->
+  <div id="photo-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
+    <div class="relative max-w-4xl w-full bg-black border-2 border-[#00f0ff] p-4 shadow-[0_0_40px_rgba(0,240,255,0.4)]">
+      <button onclick="closeModal('photo-modal')" class="absolute top-3 right-3 p-1.5 bg-black border border-white/30 text-zinc-400 hover:text-white cursor-pointer z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="relative w-full max-h-[75vh] flex items-center justify-center overflow-hidden bg-zinc-950 mb-3">
+        <img id="modal-img" src="" alt="" class="max-h-[75vh] w-auto object-contain" />
+      </div>
+
+      <div class="flex items-center justify-between pt-2 border-t border-white/20">
+        <span id="modal-title" class="font-pixel text-xs text-[#ffe600]"></span>
+        <button onclick="closeModal('photo-modal')" class="px-4 py-1.5 bg-black border border-white/30 text-white font-pixel text-xs hover:bg-white/10 cursor-pointer">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 py-6 px-4 text-center bg-black/90">
+    <p class="font-pixel text-[9px] text-zinc-500 tracking-wider">
+      © 2026 D³ FEST // IIIT BHUBANESWAR. ALL RIGHTS RESERVED.
+    </p>
+  </footer>
+
+  <script src="js/audio.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function openPhotoModal(imgSrc, title) {
+      if (window.RetroAudio) window.RetroAudio.playSfx('powerup');
+      const modal = document.getElementById('photo-modal');
+      const img = document.getElementById('modal-img');
+      const titleSpan = document.getElementById('modal-title');
+      if (modal && img && titleSpan) {
+        img.src = imgSrc;
+        titleSpan.textContent = title;
+        modal.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05020c" />
+  <title>Contact HQ | D³ FEST 2026 | IIIT Bhubaneswar</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    .nav-link {
+      clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+      border: 2px solid #000;
+      background-color: #f9a8f5;
+      color: #000;
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.3);
+    }
+    .nav-link:hover {
+      background-color: #ff7bf5;
+      transform: scale(1.05);
+    }
+    .nav-link.active {
+      background-color: #ff7bf5 !important;
+      box-shadow: 0 0 12px rgba(255, 123, 245, 0.8), inset 0 2px 0 rgba(255,255,255,0.7), inset 0 -2px 0 rgba(0,0,0,0.3) !important;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-[#05020c] text-white selection:bg-[#ff007f] selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Fixed Retro Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 py-3 px-3 sm:px-6 select-none pointer-events-auto transition-all duration-300 bg-transparent border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer group shrink-0" data-sfx="start">
+        <div class="relative w-28 sm:w-36 h-9 sm:h-11">
+          <img src="assets/logo.png" alt="D³ FEST - IIIT BHUBANESWAR" class="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-2 xl:gap-3.5">
+        <a href="index.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="index" data-sfx="blip">Home</a>
+        <a href="about.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="about" data-sfx="blip">About</a>
+        <a href="events.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="events" data-sfx="blip">Events</a>
+        <a href="merch.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="merch" data-sfx="blip">Merch</a>
+        <a href="sponsors.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="sponsors" data-sfx="blip">Sponsors</a>
+        <a href="contact.html" class="nav-link relative px-3.5 xl:px-4 py-1.5 font-pixel text-[11px] xl:text-xs tracking-wider transition-all duration-100 font-bold uppercase rounded-none" data-page="contact" data-sfx="blip">Contact Us</a>
+      </nav>
+
+      <!-- Audio Button & Mobile Toggle -->
+      <div class="flex items-center gap-2">
+        <button class="audio-toggle-btn flex items-center gap-1.5 px-3 py-1.5 bg-black/80 hover:bg-black font-pixel text-[10px] sm:text-xs tracking-wider border border-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer">
+          <img src="assets/sound icon.png" alt="Sound" class="audio-sound-icon w-4 h-4 object-contain opacity-60" />
+          <span class="font-bold audio-status-text">OFF</span>
+          <div class="audio-wave-bars hidden flex items-end gap-0.5 h-3 ml-0.5">
+            <span class="w-1 bg-[#00f0ff] animate-pulse h-2"></span>
+            <span class="w-1 bg-[#ff007f] animate-pulse h-3"></span>
+            <span class="w-1 bg-[#39ff14] animate-pulse h-1.5"></span>
+          </div>
+        </button>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-1.5 bg-[#f9a8f5] text-black font-pixel text-xs border border-black flex items-center justify-center cursor-pointer" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-3 p-4 bg-black/95 border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.3)] flex flex-col gap-2">
+      <a href="index.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="index">Home</a>
+      <a href="about.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="about">About</a>
+      <a href="events.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="events">Events</a>
+      <a href="merch.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="merch">Merch</a>
+      <a href="sponsors.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="sponsors">Sponsors</a>
+      <a href="contact.html" class="px-4 py-2 font-pixel text-xs tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10" data-page="contact">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full">
+    <div class="relative w-full min-h-screen pt-28 pb-32 px-4 sm:px-6">
+      <div class="absolute inset-0 crt-scanlines opacity-25 pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-black border-2 border-[#39ff14] text-[#39ff14] font-pixel text-[10px] sm:text-xs tracking-wider mb-4 shadow-[0_0_12px_rgba(57,255,20,0.3)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>RADAR FREQUENCIES // TRANSMISSION</span>
+          </div>
+
+          <h1 class="font-pixel text-3xl sm:text-5xl text-white tracking-wide mb-3">
+            CONTACT <span class="text-[#39ff14] neon-green">HQ</span>
+          </h1>
+
+          <p class="font-vt323 text-xl sm:text-2xl text-zinc-300">
+            Have questions about registrations, rulebooks, or college contingents? Reach out to our organizing committee.
+          </p>
+        </div>
+
+        <!-- Coordinators Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <!-- Convenor -->
+          <div class="p-6 bg-black/90 border-2 border-[#00f0ff] text-[#00f0ff] shadow-[0_0_20px_rgba(0,0,0,0.8)]" data-sfx="blip">
+            <span class="font-pixel text-[9px] uppercase tracking-wider block mb-2 opacity-80">FEST CONVENOR</span>
+            <h3 class="font-pixel text-sm text-white mb-4">Lead Coordinator</h3>
+            <div class="space-y-2 font-vt323 text-lg text-zinc-300">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:convenor.d3@iiit-bh.ac.in" class="hover:underline hover:text-white">convenor.d3@iiit-bh.ac.in</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 98765 43210</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Head -->
+          <div class="p-6 bg-black/90 border-2 border-[#ff7bf5] text-[#ff7bf5] shadow-[0_0_20px_rgba(0,0,0,0.8)]" data-sfx="blip">
+            <span class="font-pixel text-[9px] uppercase tracking-wider block mb-2 opacity-80">TECHNICAL HEAD</span>
+            <h3 class="font-pixel text-sm text-white mb-4">Hackathon &amp; Arena Lead</h3>
+            <div class="space-y-2 font-vt323 text-lg text-zinc-300">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:tech.d3@iiit-bh.ac.in" class="hover:underline hover:text-white">tech.d3@iiit-bh.ac.in</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 91234 56789</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PR Lead -->
+          <div class="p-6 bg-black/90 border-2 border-[#ffe600] text-[#ffe600] shadow-[0_0_20px_rgba(0,0,0,0.8)]" data-sfx="blip">
+            <span class="font-pixel text-[9px] uppercase tracking-wider block mb-2 opacity-80">PUBLIC RELATIONS &amp; SPONSORSHIPS</span>
+            <h3 class="font-pixel text-sm text-white mb-4">Outreach Lead</h3>
+            <div class="space-y-2 font-vt323 text-lg text-zinc-300">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:pr.d3@iiit-bh.ac.in" class="hover:underline hover:text-white">pr.d3@iiit-bh.ac.in</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400 shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 99887 76655</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form and Radar Location -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Form -->
+          <div class="bg-black/90 border-2 border-white/20 p-6 sm:p-8">
+            <h3 class="font-pixel text-lg text-white mb-6 border-b-2 border-white/15 pb-3 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#00f0ff]"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <span>TRANSMIT A MESSAGE</span>
+            </h3>
+
+            <div id="contact-msg-success" class="hidden p-6 bg-[#39ff14]/10 border-2 border-[#39ff14] text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#39ff14] mx-auto mb-2"><polyline points="20 6 9 17 4 12"/></svg>
+              <h4 class="font-pixel text-sm text-[#39ff14] mb-1">TRANSMISSION SENT</h4>
+              <p class="font-vt323 text-lg text-zinc-300">
+                Our communications officer will reply to your frequency shortly.
+              </p>
+            </div>
+
+            <form id="contact-msg-form" class="space-y-4">
+              <div>
+                <label class="block font-pixel text-[10px] text-zinc-400 mb-1">YOUR CALLSIGN / NAME</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter your name"
+                  class="w-full bg-[#090514] border-2 border-white/20 px-3 py-2 text-white font-vt323 text-lg focus:border-[#00f0ff] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block font-pixel text-[10px] text-zinc-400 mb-1">RADAR FREQUENCY / EMAIL</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="player@example.com"
+                  class="w-full bg-[#090514] border-2 border-white/20 px-3 py-2 text-white font-vt323 text-lg focus:border-[#00f0ff] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block font-pixel text-[10px] text-zinc-400 mb-1">MISSION QUERY / TRANSMISSION</label>
+                <textarea
+                  required
+                  rows="4"
+                  placeholder="State your question or coordination query..."
+                  class="w-full bg-[#090514] border-2 border-white/20 px-3 py-2 text-white font-vt323 text-lg focus:border-[#00f0ff] focus:outline-none resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                data-sfx="start"
+                class="w-full py-3 bg-[#00f0ff] hover:bg-[#00f0ff]/90 text-black font-pixel text-xs font-bold uppercase border-2 border-white cursor-pointer active:scale-95 transition-all shadow-[0_0_15px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                <span>BROADCAST TRANSMISSION</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Radar Location -->
+          <div class="bg-black/90 border-2 border-white/20 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <h3 class="font-pixel text-lg text-white mb-6 border-b-2 border-white/15 pb-3 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#ff007f]"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>CAMPUS RADAR LOCATION</span>
+              </h3>
+
+              <div class="space-y-4 font-vt323 text-xl text-zinc-300">
+                <p>
+                  <strong class="text-white block">VENUE:</strong>
+                  International Institute of Information Technology (IIIT) Bhubaneswar
+                </p>
+                <p>
+                  <strong class="text-white block">ADDRESS:</strong>
+                  Gothapatna, PO: Malipada, Bhubaneswar, Odisha 751003
+                </p>
+                <p>
+                  <strong class="text-white block">COORDINATES:</strong>
+                  20.2925° N, 85.7431° E
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 bg-[#090514] border border-white/15">
+              <p class="font-pixel text-[9px] text-[#ffe600] mb-1">RADAR STATUS:</p>
+              <p class="font-vt323 text-base text-zinc-400">
+                Direct visitor help desk operating at Admin Gate 1 during all 4 days of D³ FEST 2026.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Retro Footer -->
+    <footer id="contact" class="relative w-full bg-[#030308] border-t-2 border-[#00f0ff]/30 text-white overflow-hidden">
+      <div class="absolute inset-0 crt-scanlines opacity-30 pointer-events-none"></div>
+
+      <div class="border-b border-white/10 bg-black/60 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 relative shrink-0">
+              <img src="assets/trophy.png" alt="Trophy" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <p class="font-pixel text-xs text-[#ffe600] tracking-wider">ALL-TIME HALL OF FAME</p>
+              <p class="font-vt323 text-base text-zinc-400">CAN YOU SET A NEW HIGH SCORE IN '26?</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">1ST</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">IIIT_CYBER</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">999,990 PTS</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">2ND</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">NEON_VIPER</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">845,200 PTS</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black/80 px-3 py-1.5 border border-white/15">
+              <span class="font-pixel text-[10px] text-[#ff007f]">3RD</span>
+              <span class="font-vt323 text-lg text-[#00f0ff]">GLITCH_BOY</span>
+              <span class="font-pixel text-[9px] text-[#39ff14]">720,150 PTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="relative w-10 h-10 border border-[#00f0ff] p-1 bg-black">
+              <img src="assets/logo.png" alt="D3 Logo" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <h4 class="font-pixel text-sm text-white">D³ FEST 2026</h4>
+              <p class="font-vt323 text-sm text-zinc-400">IIIT BHUBANESWAR</p>
+            </div>
+          </div>
+          <p class="font-vt323 text-lg text-zinc-400 leading-relaxed">
+            Organized by the Technical Society of International Institute of Information Technology Bhubaneswar.
+          </p>
+          <p class="font-pixel text-[9px] text-[#39ff14] tracking-widest animate-pulse">
+            CREDITS: 99 // GAME READY
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-pixel text-xs text-[#00f0ff] tracking-wider mb-2">WARP ZONES</h4>
+          <ul class="space-y-2 font-vt323 text-lg text-zinc-300">
+            <li><a href="index.html#hero" class="hover:text-[#00f0ff] transition-colors" data-sfx="blip">&gt; Hero Cabinet Entrance</a></li>
+            <li><a href="events.html" class="hover:text-[#ff007f] transition-colors" data-sfx="blip">&gt; Quest Roadmap &amp; Arenas</a></li>
+            <li><a href="merch.html" class="hover:text-[#ffe600] transition-colors" data-sfx="blip">&gt; Item Shop &amp; Merch</a></li>
+            <li><a href="gallery.html" class="hover:text-[#39ff14] transition-colors" data-sfx="start">&gt; Retro Memory Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="font-pixel text-xs text-[#ff007f] tracking-wider mb-2">RADAR COORDINATES</h4>
+          <p class="font-vt323 text-lg text-zinc-400">
+            IIIT Bhubaneswar Campus, Gothapatna, Malipada, Bhubaneswar, Odisha 751003
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com/d3fest.iiitbh" target="_blank" rel="noreferrer" aria-label="Instagram" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#00f0ff] hover:text-[#00f0ff] hover:shadow-[0_0_12px_#00f0ff] transition-all" data-sfx="blip">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"></circle></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/tech-society-iiitbh/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#ffe600] hover:text-[#ffe600] hover:shadow-[0_0_12px_#ffe600] transition-all" data-sfx="blip">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5" stroke="currentColor" stroke-width="1.8"></rect><path d="M8.2 10v5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><circle cx="8.2" cy="7.5" r="1" fill="currentColor"></circle><path d="M12.1 15.8V12.7c0-1.3.9-2.2 2.1-2.2 1.2 0 2 .8 2 2.3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a href="https://x.com/techsociiitbh" target="_blank" rel="noreferrer" aria-label="Twitter" class="p-2.5 bg-black/80 border border-white/20 hover:border-[#39ff14] hover:text-[#39ff14] hover:shadow-[0_0_12px_#39ff14] transition-all" data-sfx="blip">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 py-4 px-4 text-center bg-black/90">
+        <p class="font-pixel text-[9px] text-zinc-500 tracking-wider">
+          © 2026 D³ FEST // IIIT BHUBANESWAR. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/festConfig.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

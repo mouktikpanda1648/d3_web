@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>D3FEST PAC-MAN - IIIT Bhubaneswar Tech Fest</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for Retro Arcade Pixel Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            sans: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            arcade: {
+              black: '#030308',
+              blue: '#2121ff',
+              yellow: '#ffff00',
+              pink: '#ffb8ae',
+              red: '#ff0000',
+              cyan: '#00ffff',
+              orange: '#ffb852',
+              green: '#00ff66',
+              purple: '#b026ff'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #05050d; }
+    ::-webkit-scrollbar-thumb { background: #2121ff; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ffff00; }
+
+    /* CRT Scanline Effect Overlay */
+    .crt-overlay::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      z-index: 25;
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+    }
+
+    .glow-blue { box-shadow: 0 0 25px rgba(33, 33, 255, 0.6), inset 0 0 15px rgba(33, 33, 255, 0.4); }
+    .glow-yellow { text-shadow: 0 0 12px rgba(255, 255, 0, 0.8); }
+    .glow-red { text-shadow: 0 0 12px rgba(255, 0, 0, 0.8); }
+    .glow-cyan { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+
+    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    .animate-bounce-slow { animation: floatArrow 1.5s infinite ease-in-out; }
+
+    .glass-arcade {
+      background: rgba(10, 10, 24, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Finale: collapsed during gameplay, expands when the maze zooms out */
+    #finaleBranding { max-height: 0; opacity: 0; overflow: hidden; pointer-events: none;
+      transition: max-height 0.7s ease, opacity 0.5s ease, margin 0.7s ease; }
+    #finaleBranding.show { max-height: 460px; opacity: 1; pointer-events: auto; }
+    #brandTitle span { opacity: 0; }
+    #brandTitle span.on { opacity: 1; }
+    #stage { transform-origin: center center; }
+    @keyframes blinkCursor { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    .blink-cursor { animation: blinkCursor 0.8s infinite steps(1); }
+  </style>
+</head>
+<body class="bg-[#030308] text-white font-sans selection:bg-arcade-yellow selection:text-black overflow-x-hidden">
+
+  <!-- Scroll track: height is computed from the gameplay timeline in JS -->
+  <div id="scrollTrack" class="relative w-full" style="height: 20000px;">
+
+    <!-- Sticky viewport frame holding the arcade experience -->
+    <div class="sticky top-0 left-0 w-full h-screen flex flex-col justify-between items-center p-2 sm:p-4 overflow-hidden z-10">
+
+      <div></div>
+
+      <!-- Main Retro Arcade Cabinet -->
+      <main class="relative w-full max-w-4xl flex-1 flex flex-col justify-center items-center my-1 sm:my-2 min-h-0">
+        <div id="stage" class="w-full flex flex-col items-center">
+        <div id="arcadeCabinet" class="relative w-full bg-black border-4 border-arcade-blue outline outline-2 outline-blue-900 rounded-xl p-3 sm:p-5 glow-blue crt-overlay overflow-hidden">
+
+          <!-- Arcade HUD Top -->
+          <div class="grid grid-cols-3 text-center mb-2 font-pixel text-[9px] sm:text-xs leading-relaxed z-30 relative">
+            <div>
+              <div class="text-gray-400">1UP</div>
+              <div id="scoreEl" class="text-arcade-pink font-bold text-xs sm:text-sm">00000</div>
+            </div>
+            <div>
+              <div class="text-arcade-yellow tracking-wider glow-yellow"></div>
+              <div id="statusEl" class="text-arcade-cyan text-[9px] sm:text-xs font-bold truncate"></div>
+            </div>
+            <div>
+              <div class="text-gray-400">HIGH SCORE</div>
+              <div id="highScoreEl" class="text-arcade-pink font-bold text-xs sm:text-sm">99990</div>
+            </div>
+          </div>
+
+          <!-- Main Game Canvas Container -->
+          <div id="canvasContainer" class="relative w-full aspect-[41/15] bg-black border-2 border-arcade-blue rounded overflow-hidden">
+            <canvas id="gameCanvas" width="820" height="300" class="w-full h-full block"></canvas>
+
+            <!-- Start Overlay with simulated mouse click -->
+            <div id="startOverlay" class="absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4 z-30">
+              <h1 class="font-pixel text-base sm:text-2xl text-arcade-yellow text-center glow-yellow mb-2 tracking-wider">
+                PAC-MAN<br><span class="text-arcade-cyan text-xs sm:text-lg"></span>
+              </h1>
+              <p class="font-mono text-gray-300 text-[10px] sm:text-xs text-center max-w-md mb-6 leading-relaxed">
+                SCROLL DOWN TO INITIATE GAMEPLAY &amp; EXPLORE ALL 17 TECH EVENTS!
+              </p>
+              <div id="startBtn" class="relative group font-pixel text-xs sm:text-sm bg-arcade-yellow text-black px-6 py-3 border-4 border-white shadow-[4px_4px_0px_#ff0000] cursor-pointer select-none" style="transition: background-color .12s, box-shadow .12s, transform .12s;">
+                ARE YOU READY?
+              </div>
+              <div class="mt-4 flex items-center gap-2 font-pixel text-[9px] text-arcade-pink">
+                <span>SCROLL DOWN TO CLICK START</span>
+                <span class="animate-bounce-slow">▼</span>
+              </div>
+            </div>
+
+            <!-- Level placard: grows out of the eaten fruit's position -->
+            <div id="eventPopup" class="absolute w-[94%] sm:w-[340px] glass-arcade border-2 border-arcade-yellow rounded-xl p-3 sm:p-4 shadow-2xl z-40" style="opacity:0; pointer-events:none; left:0; top:0;">
+              <div class="flex items-center justify-between gap-2 border-b border-arcade-yellow/30 pb-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span id="popupFruitIcon" class="text-xl">🍒</span>
+                  <span id="eventIdTag" class="font-pixel text-[10px] sm:text-xs text-arcade-yellow px-2 py-0.5 rounded bg-arcade-yellow/20 border border-arcade-yellow/40">LEVEL 01</span>
+                </div>
+                <span id="popupCategory" class="font-pixel text-[8px] sm:text-[9px] text-arcade-cyan uppercase tracking-wider text-right">FLAGSHIP HACKATHON</span>
+              </div>
+
+              <h3 id="popupTitle" class="font-pixel text-xs sm:text-sm text-white glow-yellow mb-2 leading-snug">HACK-A-BIT</h3>
+              <p id="popupDesc" class="font-sans text-[11px] sm:text-xs text-gray-200 mb-2 leading-relaxed">24-hour non-stop hackathon.</p>
+
+              <div class="grid grid-cols-2 gap-2 font-mono text-[10px] bg-black/60 p-2 rounded-lg border border-arcade-blue/40">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-arcade-pink font-bold">🏆 PRIZE:</span>
+                  <span id="popupPrize" class="text-arcade-yellow font-bold">₹50,000</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-arcade-cyan font-bold">⏰</span>
+                  <span id="popupDate" class="text-gray-300">DAY 1 - 09:00 AM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Bottom HUD -->
+          <div class="flex justify-between items-center mt-2 px-2 py-1 min-h-[28px]">
+            <canvas id="livesCanvas" width="120" height="24" class="h-6"></canvas>
+            <div id="eventCountBadge" class="font-pixel text-[9px] text-arcade-yellow px-2 py-1 rounded bg-arcade-blue/20 border border-arcade-blue/40">
+              LEVELS CLEARED: <span id="unlockedCount" class="text-arcade-cyan">0</span>/17
+            </div>
+            <canvas id="fruitsCanvas" width="160" height="24" class="h-6"></canvas>
+          </div>
+        </div>
+
+        <!-- Finale: IIIT Bhubaneswar branding -->
+        <div id="finaleBranding" class="w-full flex flex-col items-center">
+          <div class="pt-4 sm:pt-6 flex flex-col items-center w-full">
+            <h2 id="brandTitle" class="font-pixel text-lg sm:text-4xl text-center text-arcade-yellow glow-yellow tracking-widest mb-2" style="image-rendering: pixelated;" aria-label="IIIT BHUBANESWAR"></h2>
+            <p id="brandSub" class="font-pixel text-[10px] sm:text-xs text-arcade-cyan text-center tracking-wider mb-4" style="opacity:0; transition: opacity .6s;">
+              PRESENTS D3FEST 2026 &bull; ANNUAL TECH FESTIVAL
+            </p>
+            <div id="jumpWrap" class="w-full max-w-3xl bg-black/80 border border-arcade-blue/60 rounded-xl p-3 sm:p-4 backdrop-blur shadow-2xl" style="opacity:0; transition: opacity .6s;">
+              <h4 class="font-pixel text-[10px] text-arcade-pink text-center mb-3">EXPLORE ALL 17 LEVELS</h4>
+              <div id="eventJumpGrid" class="grid grid-cols-6 sm:grid-cols-9 gap-1.5 text-center"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </main>
+
+      <!-- Bottom Hint Bar -->
+      <footer class="w-full max-w-5xl flex justify-between items-center px-4 py-1.5 rounded-lg bg-black/80 border border-gray-800 text-[10px] font-pixel text-gray-400 z-30">
+        <span class="hidden sm:inline text-arcade-cyan">TIP: SCROLL UP &amp; DOWN TO REWIND / FAST-FORWARD</span>
+        <span class="sm:hidden text-arcade-cyan">SCROLL TO PLAY</span>
+        <button id="scrollToTopBtn" class="hover:text-arcade-yellow transition-colors cursor-pointer flex items-center gap-1">
+          <span>TOP</span> ▲
+        </button>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Simulated retro mouse cursor -->
+  <svg id="simulatedCursor" class="fixed top-0 left-0 w-8 h-8 z-50 pointer-events-none drop-shadow-[0_0_8px_rgba(255,255,0,0.8)]" viewBox="0 0 24 24" fill="none" style="transform: translate(40px, 40px); opacity: 0;">
+    <path d="M3 3l7 18 3-7 7-3L3 3z" fill="#ffff00" stroke="#000000" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+
+  <script>
+    /* ==========================================================================
+       1. MAP & CONSTANTS (unchanged D3FEST map)
+       ========================================================================== */
+    const TILE_SIZE = 20;
+    const ROWS = 15;
+    const COLS = 41;
+    const WORLD_W = COLS * TILE_SIZE;
+    const WORLD_H = ROWS * TILE_SIZE;
+    const FRUIT_COUNT = 17;
+
+    const D3FEST_MAP = [
+      "#########################################",
+      "#o..................#..................o#",
+      "#.####.#####.#####..#..#####.#####.####.#",
+      "#.......................................#",
+      "#.MMMM..MMMMM.MMMMM.MMMMM.MMMMM.MMMMM...#",
+      "#.M   M.....M.M.....M.....M.......M.....#",
+      "..M   M.....M.M.....M.....M.......M......",
+      "#.M   M..MMMM.MMMM..MMMM..MMMMM...M...#.#",
+      "..M   M.....M.M.....M.........M...M......",
+      "#.M   M.....M.M.....M.........M...M.....#",
+      "#.MMMM..MMMMM.M.....MMMMM.MMMMM...M.....#",
+      "#...................P...................#",
+      "#.####.#####.#####..#..#####.#####.####.#",
+      "#o.......G..........#..........G.......o#",
+      "#########################################"
+    ];
+
+    const GHOST_SPECS = [
+      { name: 'BLINKY', color: '#ff0000' },
+      { name: 'PINKY',  color: '#ffb8ff' },
+      { name: 'INKY',   color: '#00ffff' },
+      { name: 'CLYDE',  color: '#ffb852' }
+    ];
+
+    /* ==========================================================================
+       2. DETERMINISTIC WINNING RUN
+          Everything lives on a tile graph, so Pac-Man and the ghosts can only
+          ever be on corridor tiles or sliding between two adjacent ones.
+          A "position" is a float: integer part = path step, fraction = progress.
+       ========================================================================== */
+    /*SIM_START*/
+    function mulberry32(a) {
+      return function () {
+        a |= 0; a = (a + 0x6D2B79F5) | 0;
+        let t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function buildSimulation() {
+      const N = ROWS * COLS;
+      const rOf = id => (id / COLS) | 0;
+      const cOf = id => id % COLS;
+      const isWalk = (r, c) => r >= 0 && r < ROWS && c >= 0 && c < COLS && '.oPG'.indexOf(D3FEST_MAP[r][c]) >= 0;
+
+      // Neighbour lists (no tunnel wrap -> camera never teleports)
+      const nbrs = new Array(N);
+      for (let id = 0; id < N; id++) {
+        const r = rOf(id), c = cOf(id);
+        const list = [];
+        if (isWalk(r, c)) {
+          if (isWalk(r - 1, c)) list.push((r - 1) * COLS + c);
+          if (isWalk(r + 1, c)) list.push((r + 1) * COLS + c);
+          if (isWalk(r, c - 1)) list.push(r * COLS + c - 1);
+          if (isWalk(r, c + 1)) list.push(r * COLS + c + 1);
+        }
+        nbrs[id] = list;
+      }
+
+      // Pellets and Pac-Man start
+      let startId = 11 * COLS + 20;
+      const dotType = new Map();
+      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+        const ch = D3FEST_MAP[r][c];
+        if (ch === 'P') startId = r * COLS + c;
+        if (ch === '.' || ch === 'o') dotType.set(r * COLS + c, ch);
+      }
+
+      // Pac-Man route: repeatedly BFS to the nearest uneaten pellet (prefers going straight)
+      const remaining = new Set(dotType.keys());
+      const path = [startId];
+      let cur = startId, prevDir = 1;
+      while (remaining.size > 0) {
+        const parent = new Int32Array(N).fill(-1);
+        parent[cur] = cur;
+        const queue = [cur];
+        let found = -1;
+        for (let qi = 0; qi < queue.length && found < 0; qi++) {
+          const id = queue[qi];
+          if (id !== cur && remaining.has(id)) { found = id; break; }
+          const list = nbrs[id].slice().sort((a, b) => {
+            const sa = (a - id === prevDir && id === cur) ? 0 : 1;
+            const sb = (b - id === prevDir && id === cur) ? 0 : 1;
+            return sa - sb;
+          });
+          for (const nb of list) if (parent[nb] < 0) { parent[nb] = id; queue.push(nb); }
+        }
+        if (found < 0) break;
+        const seg = [];
+        for (let id = found; id !== cur; id = parent[id]) seg.push(id);
+        seg.reverse();
+        for (const id of seg) { path.push(id); remaining.delete(id); }
+        prevDir = path[path.length - 1] - path[path.length - 2];
+        cur = found;
+      }
+      const n = path.length - 1; // number of tile steps
+
+      const firstVisit = new Map();
+      for (let i = 0; i <= n; i++) if (!firstVisit.has(path[i])) firstVisit.set(path[i], i);
+
+      // Fruits: spread along the route, each on a tile Pac-Man first reaches at that step
+      const fruits = [];
+      let prevIdx = 12;
+      for (let k = 0; k < FRUIT_COUNT; k++) {
+        let idx = Math.round((k + 1) * (n * 0.94) / (FRUIT_COUNT + 0.5));
+        idx = Math.max(idx, prevIdx + 22);
+        while (idx < n - 6 && firstVisit.get(path[idx]) !== idx) idx++;
+        const id = path[idx];
+        fruits.push({ k, idx, r: rOf(id), c: cOf(id), spawn: Math.max(1, idx - 14) });
+        prevIdx = idx;
+      }
+      const fruitAt = new Map(fruits.map(f => [f.idx, f]));
+
+      // Score / power-pellet timeline per step
+      const scoreAt = new Array(n + 1), frightAt = new Array(n + 1);
+      let score = 0, fright = 0;
+      for (let i = 0; i <= n; i++) {
+        const id = path[i];
+        if (firstVisit.get(id) === i && dotType.has(id)) {
+          if (dotType.get(id) === '.') score += 10; else { score += 50; fright = 28; }
+        }
+        if (fruitAt.has(i)) score += 500;
+        scoreAt[i] = score;
+        frightAt[i] = fright;
+        if (fright > 0) fright--;
+      }
+
+      // Ghosts: also tile-graph walkers, so they can never enter a wall.
+      // They chase / scatter but are steered away from Pac-Man's (known) route,
+      // and a seed search guarantees no overlap anywhere in the run.
+      const manh = (a, b) => Math.abs(rOf(a) - rOf(b)) + Math.abs(cOf(a) - cOf(b));
+      const ghostStarts = [13 * COLS + 9, 13 * COLS + 31, 1 * COLS + 3, 1 * COLS + 37];
+
+      function generateGhosts(seed) {
+        const rng = mulberry32(seed);
+        const out = [];
+        for (let g = 0; g < 4; g++) {
+          let curId = ghostStarts[g], prev = -1;
+          const arr = [curId];
+          for (let i = 0; i < n; i++) {
+            const pa = path[i], pb = path[i + 1];
+            const pc = path[Math.min(n, i + 2)], pd = path[Math.min(n, i + 3)];
+            const nb = nbrs[curId];
+            const noSwap = x => !(curId === pb && x === pa);
+            const notBack = x => x !== prev || nb.length === 1;
+            let cand = nb.filter(x => notBack(x) && manh(x, pb) >= 2 && x !== pc && x !== pd && noSwap(x));
+            if (!cand.length) cand = nb.filter(x => notBack(x) && manh(x, pb) >= 2 && noSwap(x));
+            if (!cand.length) cand = nb.filter(x => manh(x, pb) >= 2 && noSwap(x));
+            if (!cand.length) cand = nb.filter(x => x !== pb && noSwap(x));
+            if (!cand.length) cand = curId !== pb ? [curId] : nb.slice();
+            const target = g === 1 ? path[Math.min(n, i + 5)] : pb;
+            let best = cand[0], bestScore = Infinity;
+            for (const x of cand) {
+              let s;
+              if (g === 0 || g === 1) s = manh(x, target) + rng() * 1.6;
+              else if (g === 2) s = rng();
+              else s = (manh(curId, pb) > 8 ? manh(x, pb) : -manh(x, pb)) + rng() * 1.6;
+              if (s < bestScore) { bestScore = s; best = x; }
+            }
+            prev = curId; curId = best; arr.push(curId);
+          }
+          out.push(arr);
+        }
+        return out;
+      }
+
+      function violations(gs) {
+        let bad = 0;
+        const samples = [0, 0.25, 0.5, 0.75, 1];
+        for (let i = 0; i < n; i++) for (let g = 0; g < 4; g++) for (const f of samples) {
+          const pr = rOf(path[i]) + (rOf(path[i + 1]) - rOf(path[i])) * f;
+          const pcc = cOf(path[i]) + (cOf(path[i + 1]) - cOf(path[i])) * f;
+          const gr = rOf(gs[g][i]) + (rOf(gs[g][i + 1]) - rOf(gs[g][i])) * f;
+          const gc = cOf(gs[g][i]) + (cOf(gs[g][i + 1]) - cOf(gs[g][i])) * f;
+          if (Math.hypot(pr - gr, pcc - gc) < 1.05) bad++;
+        }
+        return bad;
+      }
+
+      let ghostIds = null, bestBad = Infinity, usedSeed = 0;
+      for (let seed = 1; seed <= 80; seed++) {
+        const gs = generateGhosts(seed);
+        const bad = violations(gs);
+        if (bad < bestBad) { bestBad = bad; ghostIds = gs; usedSeed = seed; }
+        if (bad === 0) break;
+      }
+
+      const toRC = id => ({ r: rOf(id), c: cOf(id) });
+      return {
+        n,
+        path: path.map(toRC),
+        dots: Array.from(dotType.entries()).map(([id, type]) => ({ r: rOf(id), c: cOf(id), type, fv: firstVisit.get(id) })),
+        fruits, scoreAt, frightAt,
+        ghosts: ghostIds.map(arr => arr.map(toRC)),
+        ghostViolations: bestBad, ghostSeed: usedSeed
+      };
+    }
+    /*SIM_END*/
+
+    /* ==========================================================================
+       3. LEVEL (EVENT) CONFIGURATION - edit details here
+       ========================================================================== */
+    const TECH_FEST_EVENTS = [
+  { id: 1,  title: "CRAFT N CODE '26",   category: "NATIONAL HACKATHON",          date: "DAY 1 - 09:00 AM", prize: "₹50,000",     fruit: "CHERRY",     desc: "Gear up for the ultimate National level Hackathon! 24-hour non-stop hackathon inviting brilliant minds nationwide to build creative solutions and solve real-world challenges." },
+  { id: 2,  title: "CODE KOMBAT",        category: "1V1 CODING BATTLE",           date: "DAY 1 - 11:30 AM", prize: "₹25,000",     fruit: "STRAWBERRY", desc: "ICPC-inspired programming tournament where coders face off in intense algorithmic challenges. Real-time elimination format testing coding speed, precision, and edge-case handling." },
+  { id: 3,  title: "TECHXPO",            category: "INNOVATION ON DISPLAY",       date: "DAY 1 - 02:00 PM", prize: "EXHIBITION",  fruit: "ORANGE",     desc: "Curated exhibition where local startups, research labs, and student innovators showcase cutting-edge technology products and live prototypes to a nationwide audience." },
+  { id: 4,  title: "CTF ARENA",          category: "CYBERSEC DEFENSE BATTLE",     date: "DAY 1 - 04:30 PM", prize: "₹20,000",     fruit: "APPLE",      desc: "Demonstrate cybersecurity expertise in defending digital assets and combating national security threats, financial fraud, vulnerability exploitation, and cyberattacks." },
+  { id: 5,  title: "UI/UX SHOWDOWN",     category: "DIGITAL EXPERIENCE SPRINT",   date: "DAY 2 - 09:30 AM", prize: "₹18,000",     fruit: "MELON",      desc: "Transform complex problem statements into intuitive, accessible, and aesthetically compelling UI/UX solutions emphasizing usability, accessibility, and design thinking." },
+  { id: 6,  title: "BOT BOWL",           category: "ROBOSOCCER CHAMPIONSHIP",     date: "DAY 2 - 11:30 AM", prize: "₹25,000",     fruit: "GALAXIAN",   desc: "Adrenaline-charged RoboSoccer challenge where teams operate custom bots to dribble, pass, and score on a mini soccer field. Agility and engineering decide the victor." },
+  { id: 7,  title: "FLYTRON",            category: "HIGH-SPEED DRONE RACING",     date: "DAY 2 - 02:00 PM", prize: "₹25,000",     fruit: "BELL",       desc: "Navigate high-speed aerial obstacle courses where surgical precision meets throttle control. Dominate the skies in thrilling competitive heats." },
+  { id: 8,  title: "ROBO RASH",          category: "ALL-TERRAIN ENDURANCE RUSH",  date: "DAY 2 - 04:30 PM", prize: "₹15,000",     fruit: "KEY",        desc: "Navigate mobile robots through rugged multi-surface tracks featuring gravel, sand, turf, and steep slopes with maximum stability and record time." },
+  { id: 9,  title: "GROUND ZERO",        category: "DISASTER DETECTION QUEST",    date: "DAY 3 - 09:30 AM", prize: "₹12,000",     fruit: "CHERRY",     desc: "Deploy robotic explorers into simulated disaster zones to traverse rubble, detect metallic hazards, locate hidden resources, and identify signs of human life." },
+  { id: 10, title: "BUILDATHON",         category: "HARDWARE & PROTOTYPE SPRINT", date: "DAY 3 - 11:30 AM", prize: "₹20,000",     fruit: "STRAWBERRY", desc: "A race against time to turn bold ideas into working solutions. Brainstorm, design, prototype, and present working electronics, software, or automation systems." },
+  { id: 11, title: "EXPERIENCE CENTER",  category: "EXPERIENTIAL TECH ZONE",      date: "DAY 3 - 02:00 PM", prize: "INTERACTIVE", fruit: "ORANGE",     desc: "An immersive zone where technology comes alive. Explore interactive demos, live robotics showcases, and hands-on automation experiences built by the Automation & Robotics Society." },
+  { id: 12, title: "WORKSHOP.EXE",       category: "MASTERCLASS IN FUTURE TECH",  date: "DAY 3 - 04:30 PM", prize: "CERTIFICATE", fruit: "APPLE",      desc: "Engage in hands-on learning with top industry experts covering Artificial Intelligence (AI), Blockchain, Web3, Augmented Reality (AR), and Virtual Reality (VR)." },
+  { id: 13, title: "DEV DIALOGUE",       category: "INSPIRATIONAL TECH TALK",     date: "DAY 4 - 10:00 AM", prize: "KEYNOTE",     fruit: "MELON",      desc: "Leading industry visionaries and tech innovators dive into the latest breakthrough trends, sparking new ideas, expanding horizons, and shaping the future." },
+  { id: 14, title: "MECHLAB.IO",         category: "EMBEDDED & AUTONOMOUS SYSTEMS", date: "DAY 4 - 11:30 AM", prize: "WORKSHOP",  fruit: "GALAXIAN",   desc: "Comprehensive hands-on workshop presented by the Automation and Robotics Society on Embedded Systems, IoT, RPA, Computer Vision, and Autonomous Navigation." },
+  { id: 15, title: "WELCOMING CEREMONY", category: "GRAND INAUGURATION",          date: "DAY 1 - 08:30 AM", prize: "INAUGURAL",   fruit: "BELL",       desc: "The official inauguration ceremony of D³ Fest 2026, unveiling 4 days of arcade engineering, special keynote announcements, and festivities." },
+  { id: 16, title: "BITS OF PAST",       category: "RETRO COMMUNITY CELEBRATION", date: "DAY 4 - 03:00 PM", prize: "COMMUNITY",   fruit: "KEY",        desc: "An inspiring retro retrospective and community celebration honoring tech evolution, student projects, and the timeless 80s arcade culture." },
+  { id: 17, title: "CLOSING CEREMONY",   category: "AWARDS GALA & GRAND SURPRISE", date: "DAY 4 - 06:00 PM", prize: "CELEBRATION", fruit: "CHERRY",   desc: "Summing up the fest with the announcement of the Grand Surprise, awards gala for tournament champions, and the official closing celebration." }
+];
+
+    const FRUIT_EMOJIS = {
+      CHERRY: "🍒", STRAWBERRY: "🍓", ORANGE: "🍊", APPLE: "🍎",
+      MELON: "🍈", GALAXIAN: "👾", BELL: "🔔", KEY: "🔑"
+    };
+
+    /* ==========================================================================
+       4. BUILD THE RUN + RENDERING ENGINE
+       ========================================================================== */
+    const SIM = buildSimulation();
+    const PATH = SIM.path, N_STEPS = SIM.n;
+    const ZOOM = 2.8;
+
+    const dotGrid = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
+    SIM.dots.forEach(d => { dotGrid[d.r][d.c] = d; });
+
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const livesCanvas = document.getElementById('livesCanvas');
+    const livesCtx = livesCanvas.getContext('2d');
+    const fruitsCanvas = document.getElementById('fruitsCanvas');
+    const fruitsCtx = fruitsCanvas.getContext('2d');
+
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const easeInOut = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+    const easeOutBack = t => { const c = 1.70158; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+
+    let baseScale = 1, cssScale = 1;
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+      canvas.width = Math.max(2, Math.round(rect.width * dpr));
+      canvas.height = Math.max(2, Math.round(rect.height * dpr));
+      baseScale = canvas.width / WORLD_W;
+      cssScale = rect.width / WORLD_W;
+    }
+
+    // Sample a position (path progress) -> world coordinates of the tile centre
+    function samplePath(arr, pos) {
+      pos = clamp(pos, 0, N_STEPS);
+      const i = Math.min(N_STEPS - 1, Math.floor(pos));
+      const f = pos - i;
+      const a = arr[i], b = arr[i + 1];
+      return {
+        x: (a.c + (b.c - a.c) * f + 0.5) * TILE_SIZE,
+        y: (a.r + (b.r - a.r) * f + 0.5) * TILE_SIZE,
+        dx: b.c - a.c, dy: b.r - a.r
+      };
+    }
+
+    // Retro fruit sprite
+    function drawFruitSprite(targetCtx, cx, cy, fruitName, scale = 1) {
+      targetCtx.save();
+      targetCtx.translate(cx, cy);
+      targetCtx.scale(scale, scale);
+      if (fruitName === 'CHERRY') {
+        targetCtx.strokeStyle = '#00dd00'; targetCtx.lineWidth = 1.8;
+        targetCtx.beginPath();
+        targetCtx.moveTo(-4, 2); targetCtx.quadraticCurveTo(0, -7, 5, -7);
+        targetCtx.moveTo(3, 4);  targetCtx.quadraticCurveTo(4, -3, 5, -7);
+        targetCtx.stroke();
+        targetCtx.fillStyle = '#ff0000';
+        targetCtx.beginPath();
+        targetCtx.arc(-4, 3, 4, 0, Math.PI * 2);
+        targetCtx.arc(3, 5, 4, 0, Math.PI * 2);
+        targetCtx.fill();
+        targetCtx.fillStyle = '#ffffff';
+        targetCtx.fillRect(-6, 1, 1.5, 1.5);
+        targetCtx.fillRect(1, 3, 1.5, 1.5);
+      } else if (fruitName === 'STRAWBERRY') {
+        targetCtx.fillStyle = '#ff1155';
+        targetCtx.beginPath(); targetCtx.arc(0, 0, 6, 0, Math.PI * 2); targetCtx.fill();
+        targetCtx.fillStyle = '#00ee00'; targetCtx.fillRect(-4, -7, 8, 3);
+        targetCtx.fillStyle = '#ffffff';
+        targetCtx.fillRect(-3, -2, 1.5, 1.5); targetCtx.fillRect(2, -1, 1.5, 1.5); targetCtx.fillRect(0, 2, 1.5, 1.5);
+      } else if (fruitName === 'ORANGE') {
+        targetCtx.fillStyle = '#ff9900'; targetCtx.beginPath(); targetCtx.arc(0, 1, 6.5, 0, Math.PI * 2); targetCtx.fill();
+        targetCtx.fillStyle = '#00dd00'; targetCtx.fillRect(-1, -7, 3, 3);
+      } else if (fruitName === 'APPLE') {
+        targetCtx.fillStyle = '#dd0000';
+        targetCtx.beginPath(); targetCtx.arc(-2, 1, 5.5, 0, Math.PI * 2); targetCtx.arc(2, 1, 5.5, 0, Math.PI * 2); targetCtx.fill();
+        targetCtx.fillStyle = '#00dd00'; targetCtx.fillRect(0, -7, 2, 3);
+      } else if (fruitName === 'MELON') {
+        targetCtx.fillStyle = '#00cc55'; targetCtx.beginPath(); targetCtx.arc(0, 1, 6.5, 0, Math.PI * 2); targetCtx.fill();
+        targetCtx.strokeStyle = '#005522'; targetCtx.lineWidth = 1.5;
+        targetCtx.beginPath(); targetCtx.moveTo(-5, 1); targetCtx.lineTo(5, 1); targetCtx.stroke();
+      } else if (fruitName === 'GALAXIAN') {
+        targetCtx.fillStyle = '#ffff00'; targetCtx.fillRect(-5, -5, 10, 10);
+        targetCtx.fillStyle = '#0000ff'; targetCtx.fillRect(-3, -3, 6, 6);
+      } else if (fruitName === 'BELL') {
+        targetCtx.fillStyle = '#ffff00'; targetCtx.beginPath(); targetCtx.arc(0, -1, 6, Math.PI, 0); targetCtx.lineTo(6, 4); targetCtx.lineTo(-6, 4); targetCtx.fill();
+        targetCtx.fillStyle = '#00ffff'; targetCtx.fillRect(-2, 4, 4, 2);
+      } else { // KEY
+        targetCtx.fillStyle = '#00ffff'; targetCtx.fillRect(-2, -6, 4, 12); targetCtx.fillRect(0, 0, 4, 2); targetCtx.fillRect(0, 3, 4, 2);
+      }
+      targetCtx.restore();
+    }
+
+    function drawGhost(g, pos, frightened, flashWhite, wobble) {
+      const gx = g.x - TILE_SIZE / 2, gy = g.y - TILE_SIZE / 2;
+      const gr = TILE_SIZE / 2 - 1;
+      ctx.save();
+      ctx.fillStyle = frightened ? (flashWhite ? '#ffffff' : '#2121ff') : g.color;
+      ctx.beginPath();
+      ctx.arc(gx + TILE_SIZE / 2, gy + TILE_SIZE / 2 - 1, gr, Math.PI, 0, false);
+      ctx.lineTo(gx + TILE_SIZE - 1, gy + TILE_SIZE - 1);
+      const up = wobble ? 4 : 2, dn = wobble ? 2 : 4;
+      ctx.lineTo(gx + TILE_SIZE * 0.75, gy + TILE_SIZE - up);
+      ctx.lineTo(gx + TILE_SIZE * 0.5, gy + TILE_SIZE - 1);
+      ctx.lineTo(gx + TILE_SIZE * 0.25, gy + TILE_SIZE - dn);
+      ctx.lineTo(gx + 1, gy + TILE_SIZE - 1);
+      ctx.closePath();
+      ctx.fill();
+
+      const ex = clamp(g.dx, -1, 1) * 1.4, ey = clamp(g.dy, -1, 1) * 1.4;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(gx + TILE_SIZE / 2 - 3, gy + TILE_SIZE / 2 - 2, 2.5, 0, Math.PI * 2);
+      ctx.arc(gx + TILE_SIZE / 2 + 3, gy + TILE_SIZE / 2 - 2, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#2121ff';
+      ctx.beginPath();
+      ctx.arc(gx + TILE_SIZE / 2 - 3 + ex, gy + TILE_SIZE / 2 - 2 + ey, 1.2, 0, Math.PI * 2);
+      ctx.arc(gx + TILE_SIZE / 2 + 3 + ex, gy + TILE_SIZE / 2 - 2 + ey, 1.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Last camera, so DOM overlays (popup) can anchor to world positions
+    const cam = { x: 0, y: 0, zoom: ZOOM, pacX: 0, pacY: 0 };
+    const worldToCss = (wx, wy) => ({ x: (wx - cam.x) * cam.zoom * cssScale, y: (wy - cam.y) * cam.zoom * cssScale });
+
+    function renderGameFrame(pos, zoom, opts) {
+      opts = opts || {};
+      const T = TILE_SIZE;
+      const stepI = clamp(Math.floor(pos), 0, N_STEPS);
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Camera: smoothed over a short window of the route so corners glide
+      let cx = 0, cy = 0, wsum = 0;
+      for (let d = -2; d <= 2; d += 1) {
+        const w = 3 - Math.abs(d) * 0.8;
+        const s = samplePath(PATH, pos + d * 0.7);
+        cx += s.x * w; cy += s.y * w; wsum += w;
+      }
+      cx /= wsum; cy /= wsum;
+
+      const camW = WORLD_W / zoom, camH = WORLD_H / zoom;
+      const camX = clamp(cx - camW / 2, 0, WORLD_W - camW);
+      const camY = clamp(cy - camH / 2, 0, WORLD_H - camH);
+      const s = baseScale * zoom;
+      ctx.setTransform(s, 0, 0, s, -camX * s, -camY * s);
+      cam.x = camX; cam.y = camY; cam.zoom = zoom;
+
+      const pac = samplePath(PATH, pos);
+      cam.pacX = pac.x; cam.pacY = pac.y;
+
+      // Maze (only visible tiles)
+      const c0 = Math.max(0, Math.floor(camX / T) - 1), c1 = Math.min(COLS - 1, Math.ceil((camX + camW) / T) + 1);
+      const r0 = Math.max(0, Math.floor(camY / T) - 1), r1 = Math.min(ROWS - 1, Math.ceil((camY + camH) / T) + 1);
+      const wallColor = opts.flash ? '#ffffff' : '#2121ff';
+      const blinkOn = opts.blink !== false;
+      for (let r = r0; r <= r1; r++) {
+        for (let c = c0; c <= c1; c++) {
+          const cell = D3FEST_MAP[r][c];
+          const x = c * T, y = r * T;
+          if (cell === '#') {
+            ctx.strokeStyle = wallColor; ctx.lineWidth = 2;
+            ctx.strokeRect(x + 2, y + 2, T - 4, T - 4);
+          } else if (cell === 'M') {
+            ctx.fillStyle = '#101038';
+            ctx.fillRect(x + 1, y + 1, T - 2, T - 2);
+            ctx.strokeStyle = opts.flash ? '#ffffff' : '#ffb852'; ctx.lineWidth = 1.5;
+            ctx.strokeRect(x + 2.5, y + 2.5, T - 5, T - 5);
+          } else {
+            const d = dotGrid[r][c];
+            if (d && pos < d.fv) {
+              ctx.fillStyle = '#ffb8ae';
+              if (d.type === '.') {
+                ctx.fillRect(x + T / 2 - 2, y + T / 2 - 2, 4, 4);
+              } else if (blinkOn) {
+                ctx.beginPath(); ctx.arc(x + T / 2, y + T / 2, 6, 0, Math.PI * 2); ctx.fill();
+              }
+            }
+          }
+        }
+      }
+
+      // Fruits: they pop up in the maze ahead of Pac-Man and wait to be eaten
+      const t = opts.time || 0;
+      for (const f of SIM.fruits) {
+        const fx = (f.c + 0.5) * T, fy = (f.r + 0.5) * T;
+        const ev = TECH_FEST_EVENTS[f.k];
+        if (pos >= f.spawn && pos < f.idx) {
+          const pop = easeOutBack(clamp((pos - f.spawn) / 1.6, 0, 1));
+          const bob = Math.sin(t / 180 + f.k) * 1.2;
+          ctx.save();
+          ctx.globalAlpha = 0.35 + 0.15 * Math.sin(t / 200);
+          ctx.fillStyle = '#ffff00';
+          ctx.beginPath(); ctx.arc(fx, fy, 10 * pop, 0, Math.PI * 2); ctx.fill();
+          ctx.restore();
+          drawFruitSprite(ctx, fx, fy + bob, ev.fruit, 1.35 * pop);
+        } else if (pos >= f.idx && pos < f.idx + 2.4) {
+          const q = (pos - f.idx) / 2.4;
+          ctx.save();
+          ctx.globalAlpha = 1 - q;
+          ctx.fillStyle = '#00ffff';
+          ctx.font = '7px "Press Start 2P", monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText('+500', fx, fy - 8 - q * 14);
+          ctx.restore();
+        }
+      }
+
+      // Ghosts
+      const fright = SIM.frightAt[stepI];
+      const ghostPos = SIM.ghosts.map((arr, gi) => {
+        const p = samplePath(arr, pos);
+        p.color = GHOST_SPECS[gi].color;
+        return p;
+      });
+      const wobble = (Math.floor(pos * 2) % 2) === 0;
+      ghostPos.forEach(g => drawGhost(g, pos, fright > 0, fright > 0 && fright < 9 && (stepI % 2 === 0), wobble));
+
+      // Pac-Man
+      const moving = pos < N_STEPS - 0.001 && pos > 0;
+      const mouth = moving ? 0.04 + 0.21 * Math.abs(Math.sin(pos * Math.PI * 2)) : 0.2;
+      let rotation = 0;
+      if (pac.dx === 1) rotation = 0; else if (pac.dy === 1) rotation = Math.PI / 2;
+      else if (pac.dx === -1) rotation = Math.PI; else if (pac.dy === -1) rotation = -Math.PI / 2;
+      ctx.save();
+      ctx.translate(pac.x, pac.y);
+      ctx.rotate(rotation);
+      ctx.fillStyle = '#ffff00';
+      ctx.beginPath();
+      ctx.arc(0, 0, T / 2 - 1, mouth * Math.PI, (2 - mouth) * Math.PI);
+      ctx.lineTo(0, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Bottom HUD trays
+    let lastTrayCount = -1;
+    function drawHUDTrays(eaten) {
+      if (eaten === lastTrayCount) return;
+      lastTrayCount = eaten;
+      livesCtx.clearRect(0, 0, livesCanvas.width, livesCanvas.height);
+      for (let i = 0; i < 3; i++) {
+        const cx = 14 + i * 26, cy = 12;
+        livesCtx.fillStyle = '#ffff00';
+        livesCtx.beginPath();
+        livesCtx.arc(cx, cy, 8, 1.25 * Math.PI, 0.75 * Math.PI, false);
+        livesCtx.lineTo(cx, cy);
+        livesCtx.closePath();
+        livesCtx.fill();
+      }
+      fruitsCtx.clearRect(0, 0, fruitsCanvas.width, fruitsCanvas.height);
+      const from = Math.max(0, eaten - 6);
+      for (let k = from; k < eaten; k++) {
+        drawFruitSprite(fruitsCtx, fruitsCanvas.width - 14 - (eaten - 1 - k) * 22, 12, TECH_FEST_EVENTS[k].fruit, 0.9);
+      }
+    }
+
+    /* ==========================================================================
+       5. SCROLL TIMELINE  (scroll pixels -> route position)
+          Fast between fruits, normal speed while a level placard is open.
+       ========================================================================== */
+    const INTRO_PX = 700;       // cursor moves + clicks START
+    const FINALE_PX = 1500;     // zoom-out + branding
+    const FAST_PX_PER_TILE = 14;
+    const SLOW_PX_PER_TILE = 80;
+
+    const keys = [{ u: INTRO_PX, pos: 0 }];
+    const zones = [];
+    let U_END = INTRO_PX;
+    (function buildTimeline() {
+      let u = INTRO_PX, p = 0;
+      for (const f of SIM.fruits) {
+        const a = Math.max(p, f.idx - 1.5);
+        const b = Math.min(N_STEPS, f.idx + 3.5);
+        u += (a - p) * FAST_PX_PER_TILE;
+        keys.push({ u, pos: a });
+        const uStart = u;
+        const uEat = u + (f.idx - a) * SLOW_PX_PER_TILE;
+        u += (b - a) * SLOW_PX_PER_TILE;
+        keys.push({ u, pos: b });
+        zones.push({ k: f.k, uStart, uEat, uEnd: u, side: 0 });
+        p = b;
+      }
+      u += (N_STEPS - p) * FAST_PX_PER_TILE;
+      keys.push({ u, pos: N_STEPS });
+      U_END = u;
+    })();
+
+    function posOfU(u) {
+      if (u <= INTRO_PX) return 0;
+      if (u >= U_END) return N_STEPS;
+      let lo = 0, hi = keys.length - 1;
+      while (hi - lo > 1) {
+        const mid = (lo + hi) >> 1;
+        if (keys[mid].u <= u) lo = mid; else hi = mid;
+      }
+      const a = keys[lo], b = keys[hi];
+      return a.pos + (b.pos - a.pos) * ((u - a.u) / Math.max(1e-6, b.u - a.u));
+    }
+
+    /* ==========================================================================
+       6. DOM + INTERACTION
+       ========================================================================== */
+    const scrollTrack = document.getElementById('scrollTrack');
+    const scoreEl = document.getElementById('scoreEl');
+    const statusEl = document.getElementById('statusEl');
+    const unlockedCount = document.getElementById('unlockedCount');
+    const startOverlay = document.getElementById('startOverlay');
+    const startBtn = document.getElementById('startBtn');
+    const simulatedCursor = document.getElementById('simulatedCursor');
+    const eventPopup = document.getElementById('eventPopup');
+    const popupFruitIcon = document.getElementById('popupFruitIcon');
+    const eventIdTag = document.getElementById('eventIdTag');
+    const popupCategory = document.getElementById('popupCategory');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupDesc = document.getElementById('popupDesc');
+    const popupPrize = document.getElementById('popupPrize');
+    const popupDate = document.getElementById('popupDate');
+    const finaleBranding = document.getElementById('finaleBranding');
+    const eventJumpGrid = document.getElementById('eventJumpGrid');
+    const brandTitle = document.getElementById('brandTitle');
+    const brandSub = document.getElementById('brandSub');
+    const jumpWrap = document.getElementById('jumpWrap');
+    const stage = document.getElementById('stage');
+    const cabinet = document.getElementById('arcadeCabinet');
+    const container = document.getElementById('canvasContainer');
+
+    // Pixel-font brand title, revealed letter by letter
+    const BRAND = "IIIT BHUBANESWAR";
+    const brandLetters = [];
+    BRAND.split('').forEach(ch => {
+      const sp = document.createElement('span');
+      sp.textContent = ch === ' ' ? ' ' : ch;
+      brandTitle.appendChild(sp);
+      brandLetters.push(sp);
+    });
+
+    // Level jump buttons (finale)
+    TECH_FEST_EVENTS.forEach((ev, idx) => {
+      const btn = document.createElement('button');
+      btn.className = "bg-arcade-blue/20 hover:bg-arcade-yellow hover:text-black border border-arcade-blue/50 text-arcade-cyan font-pixel text-[8px] p-1.5 rounded transition-all flex flex-col items-center gap-0.5 cursor-pointer";
+      btn.innerHTML = `<span>${FRUIT_EMOJIS[ev.fruit] || '🍒'}</span><span>L${ev.id}</span>`;
+      btn.onclick = () => window.scrollTo({ top: zones[idx].uEat + 130, behavior: 'auto' });
+      eventJumpGrid.appendChild(btn);
+    });
+
+    const pad2 = v => String(v).padStart(2, '0');
+    let lastPopupZone = -1;
+    let brandShown = false, lettersOn = -1;
+
+    function hidePopup() {
+      if (eventPopup.style.opacity !== '0') { eventPopup.style.opacity = '0'; eventPopup.style.pointerEvents = 'none'; }
+      lastPopupZone = -1;
+    }
+
+    function updatePopup(u, pos) {
+      let zone = null;
+      for (const z of zones) { if (u >= z.uEat - 4 && u <= z.uEnd) { zone = z; break; } }
+      if (!zone) { hidePopup(); return; }
+      const inP = clamp((u - zone.uEat) / 90, 0, 1);
+      const outP = clamp((zone.uEnd - u) / 110, 0, 1);
+      const e = easeOutCubic(Math.min(inP, outP));
+      if (e < 0.01) { hidePopup(); return; }
+
+      const ev = TECH_FEST_EVENTS[zone.k];
+      if (lastPopupZone !== zone.k) {
+        lastPopupZone = zone.k;
+        popupFruitIcon.textContent = FRUIT_EMOJIS[ev.fruit] || '🍒';
+        eventIdTag.textContent = `LEVEL ${pad2(ev.id)}`;
+        popupCategory.textContent = ev.category;
+        popupTitle.textContent = ev.title;
+        popupDesc.textContent = ev.desc;
+        popupPrize.textContent = ev.prize;
+        popupDate.textContent = ev.date;
+        // pick the side of the screen away from Pac-Man once per placard
+        const pacCss = worldToCss(cam.pacX, cam.pacY);
+        zone.side = pacCss.x < container.clientWidth / 2 ? 1 : -1;
+      }
+
+      const cw = container.clientWidth, ch = container.clientHeight;
+      const pw = eventPopup.offsetWidth, ph = eventPopup.offsetHeight;
+      let left, top;
+      if (cw < 560) {
+        left = (cw - pw) / 2;
+        const pacCss = worldToCss(cam.pacX, cam.pacY);
+        top = pacCss.y > ch / 2 ? 4 : Math.max(4, ch - ph - 4);
+      } else {
+        left = zone.side > 0 ? cw - pw - 14 : 14;
+        top = Math.max(6, (ch - ph) / 2);
+      }
+      const f = SIM.fruits[zone.k];
+      const fruitCss = worldToCss((f.c + 0.5) * TILE_SIZE, (f.r + 0.5) * TILE_SIZE);
+      eventPopup.style.left = left + 'px';
+      eventPopup.style.top = top + 'px';
+      eventPopup.style.transformOrigin = `${fruitCss.x - left}px ${fruitCss.y - top}px`;
+      eventPopup.style.transform = `scale(${(0.12 + 0.88 * e).toFixed(3)})`;
+      eventPopup.style.opacity = e.toFixed(3);
+      eventPopup.style.pointerEvents = 'none';
+    }
+
+    function fruitsEaten(pos) {
+      let c = 0;
+      for (const f of SIM.fruits) if (pos >= f.idx) c++;
+      return c;
+    }
+
+    function setStageFit(active) {
+      if (!active) { stage.style.transform = 'scale(1)'; return; }
+      const main = stage.parentElement;
+      const needed = cabinet.offsetHeight + finaleBranding.scrollHeight + 8;
+      const s = clamp(main.clientHeight / needed, 0.5, 1);
+      stage.style.transform = `scale(${s.toFixed(3)})`;
+    }
+
+    // Render everything for a (smoothed) scroll offset u
+    function render(u, now) {
+      const blink = (Math.floor(now / 250) % 2) === 0;
+
+      /* ---------- Phase 1: intro, simulated mouse clicks START ---------- */
+      if (u < INTRO_PX) {
+        const q = u / INTRO_PX;
+        const btnRect = startBtn.getBoundingClientRect();
+        const tx = btnRect.left + btnRect.width / 2 - 6;
+        const ty = btnRect.top + btnRect.height / 2 - 4;
+        const m = easeInOut(clamp(q / 0.62, 0, 1));
+        const pressed = q > 0.68;
+        simulatedCursor.style.opacity = String(1 - clamp((q - 0.88) / 0.12, 0, 1));
+        simulatedCursor.style.transform = `translate(${lerp(60, tx, m)}px, ${lerp(60, ty, m)}px) scale(${pressed ? 0.82 : 1})`;
+        if (pressed) {
+          startBtn.textContent = "START GAME";
+          startBtn.style.backgroundColor = '#00ff66';
+          startBtn.style.boxShadow = 'none';
+          startBtn.style.transform = 'translate(4px, 4px)';
+        } else {
+          startBtn.textContent = "ARE YOU READY?";
+          startBtn.style.backgroundColor = '';
+          startBtn.style.boxShadow = '';
+          startBtn.style.transform = '';
+        }
+        startOverlay.style.opacity = String(1 - clamp((q - 0.8) / 0.2, 0, 1));
+        startOverlay.style.display = 'flex';
+
+        renderGameFrame(0, ZOOM, { time: now, blink });
+        scoreEl.textContent = '00000';
+        statusEl.textContent = 'READY!'; statusEl.style.color = '#00ffff';
+        unlockedCount.textContent = '0';
+        drawHUDTrays(0);
+        hidePopup();
+        finaleBranding.classList.remove('show'); setStageFit(false);
+        return;
+      }
+
+      simulatedCursor.style.opacity = '0';
+      startOverlay.style.opacity = '0';
+      startOverlay.style.display = 'none';
+
+      /* ---------- Phase 2: zoomed gameplay ---------- */
+      if (u <= U_END) {
+        const pos = posOfU(u);
+        renderGameFrame(pos, ZOOM, { time: now, blink });
+        const step = clamp(Math.floor(pos), 0, N_STEPS);
+        const eaten = fruitsEaten(pos);
+        scoreEl.textContent = String(SIM.scoreAt[step]).padStart(5, '0');
+        statusEl.textContent = `LEVEL ${Math.min(FRUIT_COUNT, eaten + 1)}`;
+        statusEl.style.color = '#00ffff';
+        unlockedCount.textContent = eaten;
+        drawHUDTrays(eaten);
+        updatePopup(u, pos);
+        if (brandShown) { brandShown = false; }
+        finaleBranding.classList.remove('show'); setStageFit(false);
+        brandSub.style.opacity = '0'; jumpWrap.style.opacity = '0';
+        if (lettersOn !== 0) { brandLetters.forEach(l => l.classList.remove('on')); lettersOn = 0; }
+        return;
+      }
+
+      /* ---------- Phase 3: win, zoom out, branding ---------- */
+      const fp = clamp((u - U_END) / FINALE_PX, 0, 1);
+      const zoomT = easeInOut(clamp(fp / 0.42, 0, 1));
+      const zoom = lerp(ZOOM, 1, zoomT);
+      const flash = fp < 0.42 && (Math.floor(fp * 36) % 2 === 1);
+      renderGameFrame(N_STEPS, zoom, { time: now, blink, flash });
+      scoreEl.textContent = String(SIM.scoreAt[N_STEPS]).padStart(5, '0');
+      statusEl.textContent = 'STAGE CLEAR!'; statusEl.style.color = '#00ff66';
+      unlockedCount.textContent = String(FRUIT_COUNT);
+      drawHUDTrays(FRUIT_COUNT);
+      hidePopup();
+
+      const show = fp > 0.34;
+      finaleBranding.classList.toggle('show', show);
+      setStageFit(show);
+      const on = Math.floor(clamp((fp - 0.42) / 0.3, 0, 1) * BRAND.length + 0.0001);
+      if (on !== lettersOn) {
+        brandLetters.forEach((l, i) => l.classList.toggle('on', i < on));
+        lettersOn = on;
+      }
+      brandSub.style.opacity = fp > 0.78 ? '1' : '0';
+      jumpWrap.style.opacity = fp > 0.86 ? '1' : '0';
+    }
+
+    /* ==========================================================================
+       7. SMOOTH SCROLL LOOP
+       ========================================================================== */
+    let target = 0, current = 0, dirty = true, blinkPhase = -1;
+
+    function sizeTrack() {
+      scrollTrack.style.height = Math.ceil(U_END + FINALE_PX + window.innerHeight) + 'px';
+    }
+
+    function frame(now) {
+      const d = target - current;
+      if (Math.abs(d) > 0.25) { current += d * 0.2; dirty = true; }
+      else if (current !== target) { current = target; dirty = true; }
+      const ph = Math.floor(now / 250) & 1;
+      if (ph !== blinkPhase) { blinkPhase = ph; dirty = true; }
+      if (dirty) { dirty = false; render(current, now); }
+      requestAnimationFrame(frame);
+    }
+
+    window.addEventListener('scroll', () => { target = window.scrollY; }, { passive: true });
+    window.addEventListener('resize', () => { sizeTrack(); resizeCanvas(); lastTrayCount = -1; dirty = true; });
+    document.getElementById('scrollToTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    window.addEventListener('load', () => {
+      sizeTrack();
+      resizeCanvas();
+      if (window.ResizeObserver) new ResizeObserver(() => { resizeCanvas(); lastTrayCount = -1; dirty = true; }).observe(container);
+      target = current = window.scrollY;
+      dirty = true;
+      requestAnimationFrame(frame);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { dirty = true; });
+    });
+  </script>
+</body>
+</html>
